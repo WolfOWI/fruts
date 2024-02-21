@@ -3,7 +3,12 @@ module.exports = {
   mode: "jit",
   content: ["./src/**/*.{js,jsx}", "./public/index.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        head: ["Quicksand"],
+        body: ["Work Sans"],
+      },
+    },
   },
   plugins: [],
 };
