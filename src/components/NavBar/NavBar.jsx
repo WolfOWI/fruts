@@ -13,6 +13,7 @@ function NavBar() {
         <img
           src={logo}
           className="h-6 mix-blend-overlay cursor-pointer hover:scale-110 hover:invert ease-in-out duration-300"
+          alt="frut logo"
         />
       </a>
       <div className="flex justify-end items-center">
