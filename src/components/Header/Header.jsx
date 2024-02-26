@@ -19,12 +19,12 @@ function Header() {
       <div className="flex relative justify-center col">
         <img
           src={appleFull}
-          className="h-auto -scale-x-100 md:w-3/4 lg:w-1/2 absolute object-contain"
+          className="h-auto -scale-x-100 md:w-3/4 lg:w-4/6 absolute object-contain"
           alt="apple"
         ></img>
         <img
           src={melonCut}
-          className="h-auto md:w-3/4 lg:w-1/2 absolute translate-x-32 md:translate-x-40 object-contain"
+          className="h-auto md:w-3/4 lg:w-4/6 absolute translate-x-32 md:translate-x-40 object-contain"
           alt="watermelon"
         ></img>
       </div>
