@@ -1,48 +1,83 @@
-// Data Explainer Card Icons (Landing Page)
+// Data Explainer Card Icons
 
+// Import icons
 import grillIcon from "../../../../assets/icons/things/grill_icon.svg";
 import fireIcon from "../../../../assets/icons/things/fire_icon.svg";
 import burgerIcon from "../../../../assets/icons/things/burger_icon.svg";
 import dropletIcon from "../../../../assets/icons/things/droplet_icon.svg";
 import cookieIcon from "../../../../assets/icons/things/cookie_icon.svg";
 import fruitIcon from "../../../../assets/icons/things/fruit_icon.svg";
+import aIcon from "../../../../assets/icons/letters/a_icon.svg";
+import b6Icon from "../../../../assets/icons/letters/b6_icon.svg";
+import cIcon from "../../../../assets/icons/letters/c_icon.svg";
+import eIcon from "../../../../assets/icons/letters/e_icon.svg";
+import kIcon from "../../../../assets/icons/letters/k_icon.svg";
 import euroIcon from "../../../../assets/icons/things/euro_icon.svg";
 import clockIcon from "../../../../assets/icons/things/clock_icon.svg";
 
 function DataExplainerIcon(props) {
   let icon;
-  let color;
 
-  let calColor = "bg-red-500";
-  let sugColor = "bg-green-500";
-  let vitColor = "bg-blue-500";
-  let timColor = "bg-amber-500";
-
+  // Different Icons based on ABOUT property
   switch (props.about) {
     case "protein":
       icon = grillIcon;
-      color = calColor;
       break;
 
     case "carbohydrates":
       icon = fireIcon;
-      color = calColor;
       break;
 
     case "fat":
       icon = burgerIcon;
-      color = calColor;
+      break;
+
+    case "water":
+      icon = dropletIcon;
+      break;
+
+    case "sugar":
+      icon = cookieIcon;
+      break;
+
+    case "fibre":
+      icon = fruitIcon;
+      break;
+
+    case "vitA":
+      icon = aIcon;
+      break;
+
+    case "vitB6":
+      icon = b6Icon;
+      break;
+
+    case "vitC":
+      icon = cIcon;
+      break;
+
+    case "vitE":
+      icon = eIcon;
+      break;
+
+    case "vitK":
+      icon = kIcon;
+      break;
+
+    case "euros":
+      icon = euroIcon;
+      break;
+
+    case "years":
+      icon = clockIcon;
       break;
 
     default:
+      icon = "#";
       break;
   }
 
-  return (
-    <div className={`${color} p-2 rounded-full flex justify-center items-center`}>
-      <img src={icon} alt={props.about + " icon"} className="w-7" />
-    </div>
-  );
+  return <img src={icon} alt={props.about + " icon"} className="w-8" />;
 }
 
 export default DataExplainerIcon;

@@ -44,8 +44,10 @@ function App() {
             Pit two fruits against each other or explore the historical pricing over the years.
           </p>
           <div className="grid sm:grid-cols-1 md:grid-cols-2 mt-4 w-full">
-            <DataExplainedCard />
-            <DataExplainedCard />
+            <DataExplainedCard about="calories" />
+            <DataExplainedCard about="vitamins" />
+            <DataExplainedCard about="sugars" />
+            <DataExplainedCard about="prices" />
           </div>
         </div>
       </div>

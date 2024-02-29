@@ -1,15 +1,14 @@
-// Data Explainer Point (Icon & Text)
+// Data Explainer Card Points (Icon & Text)
 
 // Import Components
-import DataExplainerIcon from "./DataExplainerIcon";
+import DataExplainerIcon from "./DataExplainerIcon.jsx";
+import DataExplainerParag from "./DataExplainerParag.jsx";
 
 function DataExplainerPoint(props) {
   return (
     <div className="flex items-center my-4">
       <DataExplainerIcon about={props.about} />
-      <p className="ms-2 text-sm">
-        Protein: The building block of life, contributing to muscle repair and growth.
-      </p>
+      <DataExplainerParag about={props.about} />
     </div>
   );
 }
