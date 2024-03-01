@@ -1,6 +1,7 @@
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
 import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 // Import Components (Landing Page)
 import FruitTypeCard from "../../components/pages/landing/FruitTypeCard/FruitTypeCard.jsx";
@@ -49,6 +50,11 @@ function LandingPage() {
             <DataExplainedCard about="sugars" />
             <DataExplainedCard about="prices" />
           </div>
+        </div>
+      </div>
+      <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
+        <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
+          <Footer />
         </div>
       </div>
     </div>
