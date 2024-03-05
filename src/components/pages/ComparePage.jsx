@@ -1,6 +1,6 @@
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
-import Header from "./LandingComponents/LandingHeader.jsx";
+import Header from "./CompareComponents/CompareHeader.jsx";
 
 function LandingPage() {
   return (
