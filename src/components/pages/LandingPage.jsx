@@ -45,10 +45,15 @@ function LandingPage() {
             Pit two fruits against each other or explore the historical pricing over the years.
           </p>
           <div className="grid sm:grid-cols-1 md:grid-cols-2 mt-4 w-full">
-            <DataExplainedCard about="calories" />
-            <DataExplainedCard about="vitamins" />
-            <DataExplainedCard about="sugars" />
-            <DataExplainedCard about="prices" />
+            <div className="mr-1">
+              <DataExplainedCard about="calories" />
+              <DataExplainedCard about="sugars" />
+            </div>
+
+            <div className="ml-1">
+              <DataExplainedCard about="vitamins" />
+              <DataExplainedCard about="prices" />
+            </div>
           </div>
         </div>
       </div>

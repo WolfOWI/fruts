@@ -85,7 +85,7 @@ function DataExplainedCard(props) {
 
   return (
     <div
-      className={`w-auto flex flex-col items-center cursor-default transition-all duration-300 ease-in-out bg-slate-100 rounded-3xl p-6 m-2`}
+      className={`h-fit w-auto flex flex-col items-center cursor-default transition-all duration-300 ease-in-out bg-slate-100 rounded-3xl p-6 mb-2`}
     >
       {title}
       <h4 className="text-center font-head font-bold text-sm">{subTitleText}</h4>
