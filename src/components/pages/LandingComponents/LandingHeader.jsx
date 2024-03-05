@@ -1,13 +1,13 @@
-// Header Section
+// Landing Page Header
 
 // Imagery Import
-import appleFull from "../../assets/img/fruits/apple.png";
-import melonCut from "../../assets/img/fruits/melon_cut.png";
+import appleFull from "../../../assets/img/fruits/apple.png";
+import melonCut from "../../../assets/img/fruits/melon_cut.png";
 
 function Header() {
   return (
     <div className="w-full pt-5 pb-10 grid grid-cols-2">
-      <div className="">
+      <div>
         <h1 className="font-head text-slate-50 text-5xl font-bold pb-2">
           for the love of <span className="text-yellow-300">fruit</span>
         </h1>

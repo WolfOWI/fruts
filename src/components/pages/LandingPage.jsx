@@ -1,11 +1,11 @@
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
-import Header from "../Header/Header.jsx";
+import Header from "./LandingComponents/LandingHeader.jsx";
 import Footer from "../Footer/Footer.jsx";
 
 // Import Components (Landing Page)
-import FruitTypeCard from "../../components/pages/landing/FruitTypeCard/FruitTypeCard.jsx";
-import DataExplainedCard from "../../components/pages/landing/DataExplainedCard/DataExplainedCard.jsx";
+import FruitTypeCard from "./LandingComponents/FruitTypeCard/FruitTypeCard.jsx";
+import DataExplainedCard from "./LandingComponents/DataExplainedCard/DataExplainedCard.jsx";
 
 function LandingPage() {
   return (
