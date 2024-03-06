@@ -3,6 +3,8 @@ import NavBar from "../NavBar/NavBar.jsx";
 import CompareHeader from "./CompareComponents/CompareHeader.jsx";
 import DonutChart from "../charts/DonutChart/DonutChart.jsx";
 import PolarChart from "../charts/PolarChart/PolarChart.jsx";
+import BarChart from "../charts/BarChart/BarChart.jsx";
+import Footer from "../Footer/Footer.jsx";
 
 function LandingPage() {
   return (
@@ -39,6 +41,13 @@ function LandingPage() {
             {/* Ride Side */}
             <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
               <PolarChart />
+            </div>
+          </div>
+          {/* Sugar, Water & Fibre */}
+          <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
+            {/* Ride Side */}
+            <div className="w-full md:w-[68%] mt-5 md:mt-0">
+              <BarChart />
             </div>
           </div>
         </div>

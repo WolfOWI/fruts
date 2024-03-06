@@ -1,4 +1,4 @@
-// Fruts-custom Donut Chart
+// Fruts-custom Polar Chart
 import { Chart as ChartJS } from "chart.js/auto";
 import { PolarArea } from "react-chartjs-2";
 
