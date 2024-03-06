@@ -1,5 +1,11 @@
 // Standard Dropdown of Fruits
 
+// Import hooks
+import { useState } from "react";
+
+// Import components
+import { Listbox, Transition } from "@headlessui/react";
+
 // Import Fruit Imagery
 import appleCut from "../../assets/img/fruits/apple_cut.png";
 import kiwiCut from "../../assets/img/fruits/kiwi_cut.png";
@@ -13,10 +19,6 @@ import melonCut from "../../assets/img/fruits/melon_cut.png";
 
 // Import Icons
 import expMore_icon from "../../assets/icons/ui/expand_more_icon.svg";
-// import expLess_icon from "../../assets/icons/ui/expand_less_icon.svg";
-
-import { useState } from "react";
-import { Listbox, Transition } from "@headlessui/react";
 
 // Fruit Options (array of objects)
 const fruits = [
@@ -77,6 +79,7 @@ const fruits = [
 ];
 
 function DropdownFruits() {
+  // useState of fruit selection dropdown
   const [selectedFruit, setSelectedFruit] = useState(fruits[0]);
 
   return (

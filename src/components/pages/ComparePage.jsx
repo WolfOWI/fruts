@@ -1,6 +1,6 @@
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
-import Header from "./CompareComponents/CompareHeader.jsx";
+import CompareHeader from "./CompareComponents/CompareHeader.jsx";
 
 function LandingPage() {
   return (
@@ -9,7 +9,7 @@ function LandingPage() {
       <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-b-3xl">
         <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
           <NavBar />
-          <Header />
+          <CompareHeader />
         </div>
       </div>
       <div>Compare Page</div>
