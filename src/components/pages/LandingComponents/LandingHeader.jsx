@@ -4,7 +4,7 @@
 import appleFull from "../../../assets/img/fruits/apple.png";
 import melonCut from "../../../assets/img/fruits/melon_cut.png";
 
-function Header() {
+function LandingHeader() {
   return (
     <div className="w-full pt-5 pb-10 grid grid-cols-2">
       <div>
@@ -32,4 +32,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default LandingHeader;
