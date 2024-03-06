@@ -86,15 +86,16 @@ function DropdownFruits() {
     <Listbox value={selectedFruit} onChange={setSelectedFruit}>
       <>
         <div className="relative w-full">
-          <Listbox.Button className="mt-2 py-5 relative w-full cursor-pointer rounded-2xl bg-slate-50 text-slate-800 font-head font-bold text-center sm:text-sm">
+          <Listbox.Button className="relative mt-2 py-5 w-full cursor-pointer text-slate-800 font-head font-bold text-center sm:text-sm">
             <div className="flex justify-center items-center">
               <img
                 src={selectedFruit.imgSrc}
                 alt={selectedFruit.name + " icon"}
-                className="h-10 w-10 absolute left-4"
+                className="h-10 w-10 absolute left-4 z-10"
               />
-              <div className="truncate">{selectedFruit.name}</div>
-              <img src={expMore_icon} alt="expand icon" className="h-6 w-6 absolute right-4 " />
+              <div className="truncate z-10 text-lg text-slate-50">{selectedFruit.name}</div>
+              <img src={expMore_icon} alt="expand icon" className="h-6 w-6 absolute right-4 z-10" />
+              <div className="w-full h-full border-2 bg-slate-700 border-black mix-blend-overlay absolute opacity-50 rounded-2xl z-0"></div>
             </div>
           </Listbox.Button>
 

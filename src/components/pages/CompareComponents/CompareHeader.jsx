@@ -15,7 +15,7 @@ function Header() {
         <img
           src={appleFull}
           alt="-"
-          className="absolute w-72 hidden sm:block sm:-left-56 md:-left-48 translate-y-10"
+          className="absolute w-72 hidden md:block sm:-left-56 md:-left-48 translate-y-6"
         />
       </div>
       {/* Fruit Right */}
@@ -23,7 +23,7 @@ function Header() {
         <img
           src={orangeFull}
           alt="-"
-          className="absolute w-72 hidden sm:block sm:-right-56 md:-right-48 translate-y-10"
+          className="absolute w-72 hidden md:block sm:-right-56 md:-right-48 translate-y-6"
         />
       </div>
       {/* Content Center */}
@@ -31,11 +31,11 @@ function Header() {
         <h1 className="font-head text-slate-50 text-5xl font-bold pb-2">compare</h1>
         <p className="text-sm font-body mix-blend-overlay">nutrients per 100g</p>
       </div>
-      <div className="flex justify-center items-center mt-2 flex-col sm:flex-row">
-        <div className="w-full sm:w-2/6">
+      <div className="flex justify-center items-center mt-2 flex-col md:flex-row">
+        <div className="w-full md:w-2/6">
           <DropdownFruits />
         </div>
-        <div className="w-full sm:w-2/6 sm:ml-3">
+        <div className="w-full md:w-2/6 md:ml-3">
           <DropdownFruits />
         </div>
       </div>
