@@ -5,7 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 function DonutChart() {
   return (
     <div className="bg-slate-50 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-lg font-head font-bold text-slate-700">Caloric Composition</h3>
+      <h3 className="text-base font-head font-bold text-slate-700">Caloric Composition</h3>
 
       <Doughnut
         data={{
