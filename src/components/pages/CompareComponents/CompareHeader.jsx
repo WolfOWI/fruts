@@ -14,7 +14,14 @@ function Header() {
         <h1 className="font-head text-slate-50 text-5xl font-bold pb-2">compare</h1>
         <p className="text-sm font-body mix-blend-overlay">nutrients per 100g</p>
       </div>
-      <DropdownFruits />
+      <div className="flex justify-center mt-2">
+        <div className="w-2/6">
+          <DropdownFruits />
+        </div>
+        <div className="w-2/6 ml-3">
+          <DropdownFruits />
+        </div>
+      </div>
     </div>
   );
 }
