@@ -11,9 +11,12 @@ function FruitTypeCard(props) {
 
   return (
     <div
-      className={`flex flex-col items-center cursor-default transition-all duration-300 ease-in-out bg-slate-100 ${hoverGradient} rounded-3xl p-6 m-2`}
+      className={`group flex flex-col items-center cursor-default transition-all duration-300 ease-in-out bg-slate-100 ${hoverGradient} rounded-3xl p-6 m-2`}
     >
-      <FruitTypeCardImg fruit={props.fruit} />
+      <div className="flex justify-center group-hover:animate-wiggle">
+        <FruitTypeCardImg fruit={props.fruit} />
+      </div>
+
       <h3 className="text-center font-head font-bold p-1">{props.fruit}</h3>
       <FruitTypeCardParag fruit={props.fruit} />
     </div>

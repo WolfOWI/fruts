@@ -16,7 +16,7 @@ function TimelineHeader({ dropdownSelect, dropdownSetSelect }) {
       <div className="w-1/2 hidden sm:flex relative justify-center ">
         <img
           src={dropdownSelect.imgSrcCut}
-          className="h-auto w-full md:w-3/4 lg:w-4/6 xl:w-1/2 2xl:w-2/5 absolute object-contain z-20"
+          className="h-auto w-full md:w-3/4 lg:w-4/6 xl:w-1/2 2xl:w-2/5 absolute object-contain z-20 "
           alt="apple"
         ></img>
         <img
