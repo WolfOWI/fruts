@@ -3,26 +3,27 @@
 // Components Import
 import DropdownFruits from "../../DropdownFruits/DropdownFruits";
 
-// Imagery Import
-import appleFull from "../../../assets/img/fruits/apple.png";
-import orangeFull from "../../../assets/img/fruits/orange.png";
-
-function Header() {
+function CompareHeader({
+  dropdownSelect1,
+  dropdownSetSelect1,
+  dropdownSelect2,
+  dropdownSetSelect2,
+}) {
   return (
     <div className="relative w-full pt-5 pb-10">
       {/* Fruit Left */}
       <div>
         <img
-          src={appleFull}
-          alt="-"
+          src={dropdownSelect1.imgSrcFull}
+          alt={`${dropdownSelect1.name}`}
           className="absolute w-72 hidden md:block sm:-left-56 md:-left-48 translate-y-6"
         />
       </div>
       {/* Fruit Right */}
       <div>
         <img
-          src={orangeFull}
-          alt="-"
+          src={dropdownSelect2.imgSrcFull}
+          alt={`${dropdownSelect2.name}`}
           className="absolute w-72 hidden md:block sm:-right-56 md:-right-48 translate-y-6"
         />
       </div>
@@ -33,14 +34,14 @@ function Header() {
       </div>
       <div className="flex justify-center items-center mt-2 flex-col md:flex-row">
         <div className="w-full md:w-2/6">
-          <DropdownFruits />
+          <DropdownFruits selectedFruit={dropdownSelect1} setSelectedFruit={dropdownSetSelect1} />
         </div>
         <div className="w-full md:w-2/6 md:ml-3">
-          <DropdownFruits />
+          <DropdownFruits selectedFruit={dropdownSelect2} setSelectedFruit={dropdownSetSelect2} />
         </div>
       </div>
     </div>
   );
 }
 
-export default Header;
+export default CompareHeader;

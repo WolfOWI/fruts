@@ -10,7 +10,9 @@ const fruitGradient = {
   pear: "from-pink-200 to-orange-200",
   plum: "from-purple-200 to-indigo-200",
   strawberry: "from-green-200 to-red-200",
+  berry: "from-green-200 to-red-200",
   watermelon: "from-green-200 to-lime-200",
+  melon: "from-green-200 to-lime-200",
 };
 
 const gradientAngle = {
