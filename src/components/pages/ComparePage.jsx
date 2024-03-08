@@ -3,6 +3,9 @@
 // Import React Hooks
 import { useState } from "react";
 
+// Import Util Function
+import get2FruitGradient from "../../utils/get2FruitGradient.js";
+
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
 import CompareHeader from "./CompareComponents/CompareHeader.jsx";
@@ -103,10 +106,13 @@ function ComparePage() {
   const [selectedFruit1, setSelectedFruit1] = useState(fruitsList[0]);
   const [selectedFruit2, setSelectedFruit2] = useState(fruitsList[1]);
 
+  // Gradient background
+  let gradient = get2FruitGradient(selectedFruit1.name, selectedFruit2.name, "horisontal");
+
   return (
     <div className="bg-gradient-to-r from-blue-200 to-green-200">
       {/* Header / Hero */}
-      <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-b-3xl">
+      <div className={`${gradient} rounded-b-3xl`}>
         {/* Content */}
         <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
           <NavBar />

@@ -1,5 +1,5 @@
 // Fruit Gradient Utility (FOR HOVERING)
-// Get a gradient based on: 1) fruit type, 2) angle of gradient
+// Get a gradient based on: 1) single fruit type, 2) angle of gradient
 
 const fruitGradient = {
   apple: "from-cyan-200 to-indigo-200",
