@@ -12,7 +12,7 @@ function CompareHeader({
   return (
     <div className="relative w-full pt-5 pb-10">
       {/* Fruit Left */}
-      <div>
+      <div className="animate-left_in transition-all">
         <img
           src={dropdownSelect1.imgSrcFull}
           alt={`${dropdownSelect1.name}`}
@@ -20,7 +20,7 @@ function CompareHeader({
         />
       </div>
       {/* Fruit Right */}
-      <div>
+      <div className="animate-right_in transition-all">
         <img
           src={dropdownSelect2.imgSrcFull}
           alt={`${dropdownSelect2.name}`}

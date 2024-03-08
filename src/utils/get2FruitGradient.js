@@ -2,10 +2,10 @@
 // Get a gradient based on: two fruit types and the angle of gradient
 
 const fromfruitGradient = {
-  apple: "from-[#6dccd1]",
+  apple: "from-blue-400",
   kiwi: "from-[#b0d16d]",
   lemon: "from-[#c9ac36]",
-  orange: "from-[#d49659]",
+  orange: "from-orange-400",
   peach: "from-[#e3b1c4]",
   pear: "from-[#bf5c80]",
   plum: "from-[#945cbf]",
@@ -16,10 +16,10 @@ const fromfruitGradient = {
 };
 
 const tofruitGradient = {
-  apple: "to-[#6dccd1]",
+  apple: "to-blue-400",
   kiwi: "to-[#b0d16d]",
   lemon: "to-[#c9ac36]",
-  orange: "to-[#d49659]",
+  orange: "to-orange-400",
   peach: "to-[#e3b1c4]",
   pear: "to-[#bf5c80]",
   plum: "to-[#945cbf]",
