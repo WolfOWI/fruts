@@ -5,6 +5,7 @@ import { useState } from "react";
 
 // Import Util Function
 import get2FruitGradient from "../../utils/get2FruitGradient.js";
+import generateRandomNum from "../../utils/generateRandomNum.js";
 
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
@@ -101,16 +102,24 @@ const fruitsList = [
   },
 ];
 
+// Generate 2 different random numbers
+let rdmNum1 = generateRandomNum(9);
+let rdmNum2 = generateRandomNum(9);
+while (rdmNum1 === rdmNum2) {
+  // (regenerate if the same)
+  rdmNum2 = generateRandomNum(9);
+}
+
 function ComparePage() {
   // States for fruit dropdowns
-  const [selectedFruit1, setSelectedFruit1] = useState(fruitsList[0]);
-  const [selectedFruit2, setSelectedFruit2] = useState(fruitsList[1]);
+  const [selectedFruit1, setSelectedFruit1] = useState(fruitsList[rdmNum1]);
+  const [selectedFruit2, setSelectedFruit2] = useState(fruitsList[rdmNum2]);
 
   // Gradient background
   let gradient = get2FruitGradient(selectedFruit1.name, selectedFruit2.name, "horisontal");
 
   return (
-    <div className="bg-gradient-to-r from-blue-200 to-green-200">
+    <div className="bg-slate-50">
       {/* Header / Hero */}
       <div className={`${gradient} rounded-b-3xl`}>
         {/* Content */}

@@ -12,7 +12,7 @@ function PolarChart(props) {
   let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
 
   return (
-    <div className="bg-slate-50 flex flex-col justify-center items-center rounded-2xl p-4">
+    <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
       <h3 className="text-base font-head font-bold text-slate-700">Vitamins</h3>
 
       <PolarArea

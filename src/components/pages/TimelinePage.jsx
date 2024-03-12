@@ -7,6 +7,7 @@ import { useState } from "react";
 
 // Import Util Functions
 import get1FruitBGColor from "../../utils/get1FruitBGColor.js";
+import generateRandomNum from "../../utils/generateRandomNum.js";
 
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
@@ -101,9 +102,12 @@ const fruitsList = [
   },
 ];
 
+// Generate random number (for dropdown select)
+let rdmNum1 = generateRandomNum(9);
+
 function TimelinePage() {
   // State of fruitDropdown in Timelineheader
-  const [selectedFruit, setSelectedFruit] = useState(fruitsList[3]);
+  const [selectedFruit, setSelectedFruit] = useState(fruitsList[rdmNum1]);
 
   // Get Gradient of selected fruit
   let gradient = get1FruitBGColor(selectedFruit.name);

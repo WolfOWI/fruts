@@ -13,7 +13,7 @@ function BarChart(props) {
   let fruitHexColors2 = getFruitHexColors(props.dropdownSelect2.name);
 
   return (
-    <div className="bg-slate-50 flex flex-col justify-center items-center rounded-2xl p-4">
+    <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
       <h3 className="text-base font-head font-bold text-slate-700">General Contents</h3>
 
       <Bar

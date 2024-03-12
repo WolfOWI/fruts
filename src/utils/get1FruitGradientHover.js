@@ -2,17 +2,17 @@
 // Get a gradient based on: 1) single fruit type, 2) angle of gradient
 
 const fruitGradient = {
-  apple: "from-cyan-200 to-indigo-200",
-  kiwi: "from-orange-200 to-green-200",
-  lemon: "from-yellow-200 to-green-200",
-  orange: "from-orange-200 to-amber-200",
-  peach: "from-fuchsia-200 to-rose-200",
-  pear: "from-pink-200 to-orange-200",
-  plum: "from-purple-200 to-indigo-200",
-  strawberry: "from-green-200 to-red-200",
-  berry: "from-green-200 to-red-200",
-  watermelon: "from-green-200 to-lime-200",
-  melon: "from-green-200 to-lime-200",
+  apple: "from-[#6ccbd0] to-[#c8f688]",
+  kiwi: "from-[#b0d16d] to-[#008a94]",
+  lemon: "from-[#e8e041] to-[#54b447]",
+  orange: "from-[#dc7e03] to-[#edbd0e]",
+  peach: "from-[#e3b1c4] to-[#a975d0]",
+  pear: "from-[#bf5c80] to-[#f59f0a]",
+  plum: "from-[#945cbf] to-[#5376cc]",
+  strawberry: "from-[#ef4444] to-[#5a9300]",
+  berry: "from-[#ef4444] to-[#5a9300]",
+  watermelon: "from-[#5abf66] to-[#a0ca61]",
+  melon: "from-[#5abf66] to-[#a0ca61]",
 };
 
 const gradientAngle = {
