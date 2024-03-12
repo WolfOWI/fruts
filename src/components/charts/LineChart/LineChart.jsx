@@ -1,10 +1,20 @@
 // Fruts-custom Line Chart
+
+// Import Chart JS
 import { Chart as ChartJS } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-function LineChart() {
+// Import Util Functions
+import get1FruitHexColor from "../../../utils/get1FruitHexColor";
+
+function LineChart(props) {
+  let fruitName = props.dropdownSelect.name;
+  let fruitHexColor = get1FruitHexColor(props.dropdownSelect.name);
+  console.log(fruitName);
+  console.log(fruitHexColor);
+
   return (
-    <div className="bg-slate-50 flex flex-col justify-center items-center rounded-2xl p-4">
+    <div className="p-4 h-72 sm:h-96">
       <Line
         data={{
           labels: [
@@ -22,11 +32,22 @@ function LineChart() {
           ],
           datasets: [
             {
-              label: "Apple",
+              label: `${fruitName}s sold`,
               data: [6434, 1350, 6467, 3283, 3283, 1223, 3213, 4834, 1233, 3333, 8233],
-              //   backgroundColor: ["#3b82f6", "#93c5fd", "#dbeafe"],
+              tension: 0.4,
+              pointHoverRadius: 8,
+              borderColor: fruitHexColor,
+              backgroundColor: fruitHexColor,
             },
           ],
+        }}
+        options={{
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
         }}
       />
     </div>

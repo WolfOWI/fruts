@@ -3,6 +3,8 @@
 // Import useState Hook
 import { useState } from "react";
 
+// Imports for Chart JS
+
 // Import Util Functions
 import get1FruitBGColor from "../../utils/get1FruitBGColor.js";
 
@@ -121,7 +123,7 @@ function TimelinePage() {
         <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6 pt-5 pb-20">
           {/* Line Chart */}
           <div className="w-full">
-            <LineChart />
+            <LineChart dropdownSelect={selectedFruit} />
           </div>
         </div>
         <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
