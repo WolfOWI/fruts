@@ -130,29 +130,29 @@ function ComparePage() {
         <div className="flex flex-col md:flex-row justify-center">
           {/* Left Side */}
           <div className="w-full md:w-2/6">
-            <DonutChart />
+            <DonutChart dropdownSelect={selectedFruit1} />
           </div>
           {/* Ride Side */}
           <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            <DonutChart />
+            <DonutChart dropdownSelect={selectedFruit2} />
           </div>
         </div>
         {/* Vitamins */}
         <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
           {/* Left Side */}
           <div className="w-full md:w-2/6">
-            <PolarChart />
+            <PolarChart dropdownSelect={selectedFruit1} />
           </div>
           {/* Ride Side */}
           <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            <PolarChart />
+            <PolarChart dropdownSelect={selectedFruit2} />
           </div>
         </div>
         {/* Sugar, Water & Fibre */}
         <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
           {/* Ride Side */}
           <div className="w-full md:w-[68%] mt-5 md:mt-0">
-            <BarChart />
+            <BarChart dropdownSelect1={selectedFruit1} dropdownSelect2={selectedFruit2} />
           </div>
         </div>
       </div>

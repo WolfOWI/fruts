@@ -5,13 +5,15 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 // Import Util Functions
-import get1FruitHexColor from "../../../utils/get1FruitHexColor";
+import getFruitHexColors from "../../../utils/getFruitHexColors";
 
 function LineChart(props) {
+  // Fruit name (passed through as a prop)
   let fruitName = props.dropdownSelect.name;
-  let fruitHexColor = get1FruitHexColor(props.dropdownSelect.name);
-  console.log(fruitName);
-  console.log(fruitHexColor);
+
+  // Get colors of fruit for styling
+  let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
+  let fruitHexColor = fruitHexColors[0];
 
   return (
     <div className="p-4 h-72 sm:h-96">

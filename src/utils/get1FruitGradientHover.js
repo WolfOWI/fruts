@@ -3,8 +3,8 @@
 
 const fruitGradient = {
   apple: "from-cyan-200 to-indigo-200",
-  kiwi: "from-yellow-200 to-green-200",
-  lemon: "from-yellow-200 to-orange-200",
+  kiwi: "from-orange-200 to-green-200",
+  lemon: "from-yellow-200 to-green-200",
   orange: "from-orange-200 to-amber-200",
   peach: "from-fuchsia-200 to-rose-200",
   pear: "from-pink-200 to-orange-200",
