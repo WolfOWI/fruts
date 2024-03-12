@@ -4,13 +4,13 @@
 const fruitGradient = {
   apple: "from-[#6ccbd0] to-[#c8f688]",
   kiwi: "from-[#b0d16d] to-[#008a94]",
-  lemon: "from-[#e8e041] to-[#54b447]",
+  lemon: "from-[#e8e041] to-[#c9ac36]",
   orange: "from-[#dc7e03] to-[#edbd0e]",
   peach: "from-[#e3b1c4] to-[#a975d0]",
   pear: "from-[#bf5c80] to-[#f59f0a]",
   plum: "from-[#945cbf] to-[#5376cc]",
-  strawberry: "from-[#ef4444] to-[#5a9300]",
-  berry: "from-[#ef4444] to-[#5a9300]",
+  strawberry: "from-[#ef4444] to-[#bf5c5c]",
+  berry: "from-[#ef4444] to-[#bf5c5c]",
   watermelon: "from-[#5abf66] to-[#a0ca61]",
   melon: "from-[#5abf66] to-[#a0ca61]",
 };
