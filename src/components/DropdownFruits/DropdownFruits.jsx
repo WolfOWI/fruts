@@ -122,7 +122,7 @@ function DropdownFruits({ selectedFruit, setSelectedFruit }) {
             <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-2xl bg-slate-50 py-1 text-base shadow-lg sm:text-sm">
               {fruitsList.map((fruit) => (
                 <Listbox.Option
-                  key={fruitsList.id}
+                  key={fruit.id}
                   className={`${fruit.hoverColor} relative cursor-pointer select-none py-2`}
                   value={fruit}
                 >
