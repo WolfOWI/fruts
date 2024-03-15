@@ -3,11 +3,12 @@
 // Import useState Hook
 import { useState } from "react";
 
-// Imports for Chart JS
-
 // Import Util Functions
 import get1FruitBGColor from "../../utils/get1FruitBGColor.js";
 import generateRandomNum from "../../utils/generateRandomNum.js";
+
+// Import API Functions
+import getDecadeFruitPrices from "../../api/euAgriDataAPI.js";
 
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
@@ -104,6 +105,8 @@ const fruitsList = [
 
 // Generate random number (for dropdown select)
 let rdmNum1 = generateRandomNum(9);
+
+console.log(getDecadeFruitPrices());
 
 function TimelinePage() {
   // State of fruitDropdown in Timelineheader
