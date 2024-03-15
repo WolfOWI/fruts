@@ -106,7 +106,8 @@ const fruitsList = [
 // Generate random number (for dropdown select)
 let rdmNum1 = generateRandomNum(9);
 
-console.log(getDecadeFruitPrices());
+let response = getDecadeFruitPrices();
+console.log(response);
 
 function TimelinePage() {
   // State of fruitDropdown in Timelineheader

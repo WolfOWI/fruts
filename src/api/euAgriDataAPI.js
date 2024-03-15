@@ -3,34 +3,29 @@
 // Import Axios
 import axios from "axios";
 
-// VARIABLES
-// -------------------
-// Proxy Url for bypassing CORS errors
-const proxyURL = "https://cors-proxy.htmldriven.com/?url=";
-
 // Base URL for API
-const baseURL = "https://ec.europa.eu/agrifood/api/fruitAndVegetable/prices?";
-// -------------------
+const baseURL = "/api?_method=get"; // Adjusted base URL to match the proxy rewrite
 
-function getDecadeFruitPrices(fruitName) {
-  let priceData = null;
+const params = new URLSearchParams({
+  products: "melons",
+  memberStateCodes: "EU",
+  months: 6,
+  calendarYears: 2014,
+}).toString();
+
+const url = `${baseURL}&${params}`;
+
+function getDecadeFruitPrices() {
+  console.log(`Making request to: ${url}`);
 
   axios
-    .get(`${proxyURL}${baseURL}products=melons&memberStateCodes=EU&months=6&calendarYears=2014`)
+    .get(url)
     .then((res) => {
-      priceData = res;
-      console.log(
-        `${proxyURL}${baseURL}products=melons&memberStateCodes=EU&months=6&calendarYears=2014`
-      );
+      console.log("Success", res.data);
     })
     .catch((err) => {
-      console.log(`EuAgriData Error: ${err}`);
-      console.log(
-        `${proxyURL}${baseURL}products=melons&memberStateCodes=EU&months=6&calendarYears=2014`
-      );
+      console.log(`EuAgriData Error:`, err);
     });
-
-  return priceData;
 }
 
 export default getDecadeFruitPrices;
