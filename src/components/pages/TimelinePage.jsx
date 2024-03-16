@@ -1,11 +1,12 @@
 // Timeline Page
 
 // Import useState Hook
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Import Util Functions
 import get1FruitBGColor from "../../utils/get1FruitBGColor.js";
 import generateRandomNum from "../../utils/generateRandomNum.js";
+import fruitNameToPlural from "../../utils/fruitNameToPlural.js";
 
 // Import API Functions
 import getDecadeFruitPrices from "../../api/euAgriDataAPI.js";
@@ -89,7 +90,7 @@ const fruitsList = [
   },
   {
     id: 8,
-    name: "berry",
+    name: "strawberry",
     imgSrcFull: berryFull,
     imgSrcCut: berryCut,
     hoverColor: "hover:bg-red-100",
@@ -103,14 +104,27 @@ const fruitsList = [
   },
 ];
 
-// Generate random number (for dropdown select)
-let rdmNum1 = generateRandomNum(9);
-
-getDecadeFruitPrices("apples");
-
 function TimelinePage() {
+  // Generate random number (for dropdown select)
+  let rdmNum1 = generateRandomNum(9);
   // State of fruitDropdown in Timelineheader
   const [selectedFruit, setSelectedFruit] = useState(fruitsList[rdmNum1]);
+
+  // State of Fruit Price Data
+  const [fruitPriceData, setFruitPriceData] = useState([]);
+
+  // When the state of dropdown is changed
+  useEffect(() => {
+    // console.log("useEffect" + fruitNameToPlural(selectedFruit.name));
+    getDecadeFruitPrices(fruitNameToPlural(selectedFruit.name))
+      .then((arr) => {
+        // console.log("Results from getDecadeFruitPrices: ", arr);
+        setFruitPriceData(arr);
+      })
+      .catch((err) => {
+        console.log("Failed to get fruit prices: ", err);
+      });
+  }, [selectedFruit]);
 
   // Get Gradient of selected fruit
   let gradient = get1FruitBGColor(selectedFruit.name);
@@ -130,7 +144,7 @@ function TimelinePage() {
         <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6 pt-5 pb-20">
           {/* Line Chart */}
           <div className="w-full">
-            <LineChart dropdownSelect={selectedFruit} />
+            <LineChart dropdownSelect={selectedFruit} dataArr={fruitPriceData} />
           </div>
         </div>
         <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">

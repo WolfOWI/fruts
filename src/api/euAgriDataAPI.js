@@ -18,19 +18,19 @@ export default function getDecadeFruitPrices(fruit) {
   // The complete url
   const url = `${baseURL}&${params}`;
 
-  console.log(`Making request to: ${url}`);
+  // console.log(`Making request to: ${url}`);
 
-  axios
+  return axios
     .get(url)
     .then((res) => {
-      console.log("Response Array: ");
-      console.log(res.data);
-
-      console.log("Filtered Array: ");
-      console.log(filterTo1PerYear(filterToSingleVariety(res.data)));
+      const filteredData = filterTo1PerYear(filterToSingleVariety(res.data));
+      // console.log("Filtered Array: ");
+      // console.log(filteredData);
+      return filteredData;
     })
     .catch((err) => {
       console.log(`EuAgriData Error:`, err);
+      throw err;
     });
 }
 

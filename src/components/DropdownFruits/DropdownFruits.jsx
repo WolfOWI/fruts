@@ -79,7 +79,7 @@ const fruitsList = [
   },
   {
     id: 8,
-    name: "berry",
+    name: "strawberry",
     imgSrcFull: berryFull,
     imgSrcCut: berryCut,
     hoverColor: "hover:bg-red-100",
