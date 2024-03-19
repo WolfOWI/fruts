@@ -10,10 +10,11 @@ import generateRandomNum from "../../utils/generateRandomNum.js";
 // Import API functions
 import { getApiFruitID, postFruitInfo } from "../../api/edamamAPI.js";
 
-// Import Components (General)
+// Import Components
 import NavBar from "../NavBar/NavBar.jsx";
 import CompareHeader from "./CompareComponents/CompareHeader.jsx";
 import DonutChart from "../charts/DonutChart/DonutChart.jsx";
+import LoadingDonutChart from "../charts/DonutChart/LoadingDonutChart.jsx";
 import PolarChart from "../charts/PolarChart/PolarChart.jsx";
 import BarChart from "../charts/BarChart/BarChart.jsx";
 import Footer from "../Footer/Footer.jsx";
@@ -214,7 +215,7 @@ function ComparePage() {
     }
   }, [selectedFruit1, idsInitialised]);
 
-  // Dropdown 1 Change or FruitIDs initialised
+  // Dropdown 2 Change or FruitIDs initialised
   useEffect(() => {
     if (idsInitialised) {
       async function fetchFruitInfo() {
@@ -259,8 +260,8 @@ function ComparePage() {
             // console.log("Water: " + res.totalNutrients.WATER.quantity);
             // console.log("Fibre: " + res.totalNutrients.FIBTG.quantity);
 
-            setIsLoadingDonut1(false);
-            setIsLoadingPolar1(false);
+            setIsLoadingDonut2(false);
+            setIsLoadingPolar2(false);
           } catch (err) {
             console.log("EdamamAPI - Unable to POST fruitID 2: " + err);
           }
@@ -270,11 +271,58 @@ function ComparePage() {
     }
   }, [selectedFruit2, idsInitialised]);
 
+  // When Dropdown 1 OR 2 changes OR FruitIDs initialised
+  useEffect(() => {
+    if (idsInitialised) {
+      async function fetchFruitInfo() {
+        // Stored fruit IDs
+        const storedFruitIds = sessionStorage.getItem("storedFruitIds");
+
+        // If storedFruitIds exist
+        if (storedFruitIds) {
+          const storedFruitIdsArray = JSON.parse(storedFruitIds);
+
+          // Find LEFT storedFruit object 1 based on dropdown
+          const storedFruitObject1 = storedFruitIdsArray.find(
+            (fruit) => fruit.name === selectedFruit1.name
+          );
+
+          // Find RIGHT storedFruit object 1 based on dropdown
+          const storedFruitObject2 = storedFruitIdsArray.find(
+            (fruit) => fruit.name === selectedFruit2.name
+          );
+
+          try {
+            // Get fruit 1 (LEFT) info
+            const res1 = await postFruitInfo(storedFruitObject1.id);
+            // Get fruit 2 (RIGHT) info
+            const res2 = await postFruitInfo(storedFruitObject2.id);
+
+            setSuWaFi([
+              res1.totalNutrients.SUGAR.quantity,
+              res2.totalNutrients.SUGAR.quantity,
+              res1.totalNutrients.WATER.quantity,
+              res2.totalNutrients.WATER.quantity,
+              res1.totalNutrients.FIBTG.quantity,
+              res2.totalNutrients.FIBTG.quantity,
+            ]);
+
+            // console.log("Sugar: " + res.totalNutrients.SUGAR.quantity);
+            // console.log("Water: " + res.totalNutrients.WATER.quantity);
+            // console.log("Fibre: " + res.totalNutrients.FIBTG.quantity);
+
+            setIsLoadingBar(false);
+          } catch (err) {
+            console.log("EdamamAPI - Unable to POST fruitID 1 &/ 2: " + err);
+          }
+        }
+      }
+      fetchFruitInfo();
+    }
+  }, [selectedFruit1, selectedFruit2, idsInitialised]);
+
   // Gradient background
   let gradient = get2FruitGradient(selectedFruit1.name, selectedFruit2.name, "horisontal");
-
-  // Temporary Placeholder for loading
-  const LoadingPlaceholder = () => <div>Loading...</div>;
 
   return (
     <div className="bg-slate-50">
@@ -298,14 +346,18 @@ function ComparePage() {
           {/* Left Side */}
           <div className="w-full md:w-2/6">
             {isLoadingDonut1 ? (
-              <LoadingPlaceholder />
+              <LoadingDonutChart />
             ) : (
               <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFat1} />
             )}
           </div>
           {/* Ride Side */}
           <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFat2} />
+            {isLoadingDonut2 ? (
+              <LoadingDonutChart />
+            ) : (
+              <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFat2} />
+            )}
           </div>
         </div>
         {/* Vitamins */}
@@ -321,9 +373,12 @@ function ComparePage() {
         </div>
         {/* Sugar, Water & Fibre */}
         <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
-          {/* Ride Side */}
           <div className="w-full md:w-[68%] mt-5 md:mt-0">
-            <BarChart dropdownSelect1={selectedFruit1} dropdownSelect2={selectedFruit2} />
+            <BarChart
+              dropdownSelect1={selectedFruit1}
+              dropdownSelect2={selectedFruit2}
+              fruitData={suWaFi}
+            />
           </div>
         </div>
       </div>

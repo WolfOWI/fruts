@@ -11,7 +11,7 @@ function PolarChart(props) {
   // Get fruit hex color palette based on prop passed
   let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
 
-  console.log("Polar graph data reached " + props.fruitData);
+  // console.log("Polar graph data reached " + props.fruitData);
 
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">

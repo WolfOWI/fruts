@@ -12,25 +12,87 @@ function BarChart(props) {
   let fruitHexColors1 = getFruitHexColors(props.dropdownSelect1.name);
   let fruitHexColors2 = getFruitHexColors(props.dropdownSelect2.name);
 
+  // console.log("Bar Data: " + props.fruitData);
+
+  // Split array in different data
+  let fullArr = props.fruitData;
+  console.log("Full Arr:  " + fullArr);
+  let sugarData = fullArr.slice(0, 2);
+  console.log("Data 1:  " + sugarData);
+
+  let waterData = fullArr.slice(2, 4);
+  console.log("Data 2:  " + waterData);
+
+  let fibreData = fullArr.slice(4, 6);
+  console.log("Data 2:  " + fibreData);
+
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-base font-head font-bold text-slate-700">General Contents</h3>
+      <h3 className="text-base font-head font-bold text-slate-700">Sugar</h3>
 
       <Bar
         data={{
-          labels: ["Sugar", "Water", "Fibre"],
+          labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
           datasets: [
             {
-              label: "Apple",
-              data: [6434, 1350, 6467],
-              backgroundColor: fruitHexColors1[0],
-            },
-            {
-              label: "Kiwi",
-              data: [3234, 6545, 4432],
-              backgroundColor: fruitHexColors2[0],
+              axis: "y",
+              data: sugarData,
+              backgroundColor: [fruitHexColors1[0], fruitHexColors2[0]],
             },
           ],
+        }}
+        options={{
+          aspectRatio: 10 / 2,
+          indexAxis: "y",
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        }}
+      />
+      <h3 className="text-base font-head font-bold text-slate-700 mt-5">Water</h3>
+      <Bar
+        data={{
+          labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
+          datasets: [
+            {
+              axis: "y",
+              data: waterData,
+              backgroundColor: [fruitHexColors1[0], fruitHexColors2[0]],
+            },
+          ],
+        }}
+        options={{
+          aspectRatio: 10 / 2,
+          indexAxis: "y",
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        }}
+      />
+      <h3 className="text-base font-head font-bold text-slate-700 mt-5">Fibre</h3>
+      <Bar
+        data={{
+          labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
+          datasets: [
+            {
+              axis: "y",
+              data: fibreData,
+              backgroundColor: [fruitHexColors1[0], fruitHexColors2[0]],
+            },
+          ],
+        }}
+        options={{
+          aspectRatio: 10 / 2,
+          indexAxis: "y",
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
         }}
       />
     </div>
