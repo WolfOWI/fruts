@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function getDecadeFruitPrices(fruit) {
   // Base URL for API
-  const baseURL = "/api?_method=get"; // Adjusted base URL to match the proxy rewrite
+  const baseURL = "/api?_method=get";
 
   // Parameters for URL
   const params = new URLSearchParams({

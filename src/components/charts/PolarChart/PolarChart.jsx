@@ -11,17 +11,19 @@ function PolarChart(props) {
   // Get fruit hex color palette based on prop passed
   let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
 
+  console.log("Polar graph data reached " + props.fruitData);
+
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-base font-head font-bold text-slate-700">Vitamins</h3>
+      <h3 className="text-base font-head font-bold text-slate-700">% Daily Vitamins</h3>
 
       <PolarArea
         data={{
           labels: ["A", "B6", "C", "E", "K"],
           datasets: [
             {
-              label: "Stock Price",
-              data: [6434, 6350, 6467, 4383, 3232],
+              label: "Percent",
+              data: props.fruitData,
               backgroundColor: [
                 fruitHexColors[0],
                 fruitHexColors[1],

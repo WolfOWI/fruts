@@ -1,11 +1,14 @@
 // Compare Page
 
 // Import React Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// Import Util Function
+// Import Util functions
 import get2FruitGradient from "../../utils/get2FruitGradient.js";
 import generateRandomNum from "../../utils/generateRandomNum.js";
+
+// Import API functions
+import { getApiFruitID, postFruitInfo } from "../../api/edamamAPI.js";
 
 // Import Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
@@ -88,7 +91,7 @@ const fruitsList = [
   },
   {
     id: 8,
-    name: "berry",
+    name: "strawberry",
     imgSrcFull: berryFull,
     imgSrcCut: berryCut,
     hoverColor: "hover:bg-red-100",
@@ -115,8 +118,163 @@ function ComparePage() {
   const [selectedFruit1, setSelectedFruit1] = useState(fruitsList[rdmNum1]);
   const [selectedFruit2, setSelectedFruit2] = useState(fruitsList[rdmNum2]);
 
+  // States for graphs
+  const [carProFat1, setCarProFat1] = useState([]); //Donut 1 (left) (fat, protein, carbs)
+  const [carProFat2, setCarProFat2] = useState([]); //Donut 2 (right) (fat, protein, carbs)
+  const [vitAtoK1, setVitAtoK1] = useState([]); //Polar 1 (left) (Vit A, B6, C, E, K)
+  const [vitAtoK2, setVitAtoK2] = useState([]); //Polar 2 (right) (Vit A, B6, C, E, K)
+  const [suWaFi, setSuWaFi] = useState([]); //Bar graph (sugar, water, fibre)
+
+  // Loading States
+  const [isLoadingDonut1, setIsLoadingDonut1] = useState(true); //Donut 1 (left) loading state
+  const [isLoadingDonut2, setIsLoadingDonut2] = useState(true); //Donut 2 (right) loading state
+  const [isLoadingPolar1, setIsLoadingPolar1] = useState(true); //Polar 1 (left) loading state
+  const [isLoadingPolar2, setIsLoadingPolar2] = useState(true); //Polar 2 (right) loading state
+  const [isLoadingBar, setIsLoadingBar] = useState(true); //Bar graph loading state
+
+  // State for fruitID initialisation (from api)
+  const [idsInitialised, setIdsInitialised] = useState(false);
+
+  // Initialise fruit ids (from api)
+  useEffect(() => {
+    async function initialiseFruitIds() {
+      // If Ids don't exist already
+      if (!sessionStorage.getItem("storedFruitIds")) {
+        const fruitIds = await Promise.all(
+          fruitsList.map(async (fruit) => {
+            const apiId = await getApiFruitID(fruit.name);
+            const fName = fruit.name;
+
+            return { name: fName, id: apiId };
+          })
+        );
+        // Store the IDs
+        sessionStorage.setItem("storedFruitIds", JSON.stringify(fruitIds));
+        setIdsInitialised(true);
+      } else {
+        setIdsInitialised(true);
+      }
+    }
+    initialiseFruitIds();
+  }, []);
+
+  // Dropdown 1 Change or FruitIDs initialised
+  useEffect(() => {
+    if (idsInitialised) {
+      async function fetchFruitInfo() {
+        // Stored fruit IDs
+        const storedFruitIds = sessionStorage.getItem("storedFruitIds");
+
+        // If storedFruitIds exist
+        if (storedFruitIds) {
+          const storedFruitIdsArray = JSON.parse(storedFruitIds);
+
+          // Find storedFruit object based on dropdown
+          const storedFruitObject = storedFruitIdsArray.find(
+            (fruit) => fruit.name === selectedFruit1.name
+          );
+
+          try {
+            const res = await postFruitInfo(storedFruitObject.id);
+            // console.log(res);
+            setCarProFat1([
+              res.totalNutrients.CHOCDF.quantity,
+              res.totalNutrients.PROCNT.quantity,
+              res.totalNutrients.FAT.quantity,
+            ]);
+            // console.log("Fat: " + res.totalNutrients.FAT.quantity);
+            // console.log("Protein: " + res.totalNutrients.PROCNT.quantity);
+            // console.log("Carbs: " + res.totalNutrients.CHOCDF.quantity);
+
+            setVitAtoK1([
+              Math.round(res.totalDaily.VITA_RAE.quantity),
+              Math.round(res.totalDaily.VITB6A.quantity),
+              Math.round(res.totalDaily.VITC.quantity),
+              Math.round(res.totalDaily.TOCPHA.quantity),
+              Math.round(res.totalDaily.VITK1.quantity),
+            ]);
+            // console.log("Vit A: " + res.totalDaily.VITA_RAE.quantity);
+            // console.log("Vit B6: " + res.totalDaily.VITB6A.quantity);
+            // console.log("Vit C: " + res.totalDaily.VITC.quantity);
+            // console.log("Vit E: " + res.totalDaily.TOCPHA.quantity);
+            // console.log("Vit K: " + res.totalDaily.VITK1.quantity);
+
+            // console.log("Sugar: " + res.totalNutrients.SUGAR.quantity);
+            // console.log("Water: " + res.totalNutrients.WATER.quantity);
+            // console.log("Fibre: " + res.totalNutrients.FIBTG.quantity);
+
+            setIsLoadingDonut1(false);
+            setIsLoadingPolar1(false);
+          } catch (err) {
+            console.log("EdamamAPI - Unable to POST fruitID 1: " + err);
+          }
+        }
+      }
+      fetchFruitInfo();
+    }
+  }, [selectedFruit1, idsInitialised]);
+
+  // Dropdown 1 Change or FruitIDs initialised
+  useEffect(() => {
+    if (idsInitialised) {
+      async function fetchFruitInfo() {
+        // Stored fruit IDs
+        const storedFruitIds = sessionStorage.getItem("storedFruitIds");
+
+        // If storedFruitIds exist
+        if (storedFruitIds) {
+          const storedFruitIdsArray = JSON.parse(storedFruitIds);
+
+          // Find storedFruit object based on dropdown
+          const storedFruitObject = storedFruitIdsArray.find(
+            (fruit) => fruit.name === selectedFruit2.name
+          );
+
+          try {
+            const res = await postFruitInfo(storedFruitObject.id);
+            // console.log(res);
+            setCarProFat2([
+              res.totalNutrients.CHOCDF.quantity,
+              res.totalNutrients.PROCNT.quantity,
+              res.totalNutrients.FAT.quantity,
+            ]);
+            // console.log("Fat: " + res.totalNutrients.FAT.quantity);
+            // console.log("Protein: " + res.totalNutrients.PROCNT.quantity);
+            // console.log("Carbs: " + res.totalNutrients.CHOCDF.quantity);
+
+            setVitAtoK2([
+              Math.round(res.totalDaily.VITA_RAE.quantity),
+              Math.round(res.totalDaily.VITB6A.quantity),
+              Math.round(res.totalDaily.VITC.quantity),
+              Math.round(res.totalDaily.TOCPHA.quantity),
+              Math.round(res.totalDaily.VITK1.quantity),
+            ]);
+            // console.log("Vit A: " + res.totalDaily.VITA_RAE.quantity);
+            // console.log("Vit B6: " + res.totalDaily.VITB6A.quantity);
+            // console.log("Vit C: " + res.totalDaily.VITC.quantity);
+            // console.log("Vit E: " + res.totalDaily.TOCPHA.quantity);
+            // console.log("Vit K: " + res.totalDaily.VITK1.quantity);
+
+            // console.log("Sugar: " + res.totalNutrients.SUGAR.quantity);
+            // console.log("Water: " + res.totalNutrients.WATER.quantity);
+            // console.log("Fibre: " + res.totalNutrients.FIBTG.quantity);
+
+            setIsLoadingDonut1(false);
+            setIsLoadingPolar1(false);
+          } catch (err) {
+            console.log("EdamamAPI - Unable to POST fruitID 2: " + err);
+          }
+        }
+      }
+      fetchFruitInfo();
+    }
+  }, [selectedFruit2, idsInitialised]);
+
   // Gradient background
   let gradient = get2FruitGradient(selectedFruit1.name, selectedFruit2.name, "horisontal");
+
+  // Temporary Placeholder for loading
+  const LoadingPlaceholder = () => <div>Loading...</div>;
 
   return (
     <div className="bg-slate-50">
@@ -139,22 +297,26 @@ function ComparePage() {
         <div className="flex flex-col md:flex-row justify-center">
           {/* Left Side */}
           <div className="w-full md:w-2/6">
-            <DonutChart dropdownSelect={selectedFruit1} />
+            {isLoadingDonut1 ? (
+              <LoadingPlaceholder />
+            ) : (
+              <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFat1} />
+            )}
           </div>
           {/* Ride Side */}
           <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            <DonutChart dropdownSelect={selectedFruit2} />
+            <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFat2} />
           </div>
         </div>
         {/* Vitamins */}
         <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
           {/* Left Side */}
           <div className="w-full md:w-2/6">
-            <PolarChart dropdownSelect={selectedFruit1} />
+            <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
           </div>
           {/* Ride Side */}
           <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            <PolarChart dropdownSelect={selectedFruit2} />
+            <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
           </div>
         </div>
         {/* Sugar, Water & Fibre */}
