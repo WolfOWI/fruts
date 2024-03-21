@@ -16,7 +16,9 @@ import CompareHeader from "./CompareComponents/CompareHeader.jsx";
 import DonutChart from "../charts/DonutChart/DonutChart.jsx";
 import LoadingDonutChart from "../charts/DonutChart/LoadingDonutChart.jsx";
 import PolarChart from "../charts/PolarChart/PolarChart.jsx";
+import LoadingPolarChart from "../charts/PolarChart/LoadingPolarChart.jsx";
 import BarChart from "../charts/BarChart/BarChart.jsx";
+import LoadingBarChart from "../charts/BarChart/LoadingBarChart.jsx";
 import Footer from "../Footer/Footer.jsx";
 
 // Fruit Imagery
@@ -336,21 +338,33 @@ function ComparePage() {
         <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
           {/* Left Side */}
           <div className="w-full md:w-2/6">
-            <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
+            {isLoadingPolar1 ? (
+              <LoadingPolarChart />
+            ) : (
+              <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
+            )}
           </div>
           {/* Ride Side */}
           <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
+            {isLoadingPolar2 ? (
+              <LoadingPolarChart />
+            ) : (
+              <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
+            )}
           </div>
         </div>
         {/* Sugar, Water & Fibre */}
         <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
           <div className="w-full md:w-[68%] mt-5 md:mt-0">
-            <BarChart
-              dropdownSelect1={selectedFruit1}
-              dropdownSelect2={selectedFruit2}
-              fruitData={suWaFi}
-            />
+            {isLoadingBar ? (
+              <LoadingBarChart />
+            ) : (
+              <BarChart
+                dropdownSelect1={selectedFruit1}
+                dropdownSelect2={selectedFruit2}
+                fruitData={suWaFi}
+              />
+            )}
           </div>
         </div>
       </div>

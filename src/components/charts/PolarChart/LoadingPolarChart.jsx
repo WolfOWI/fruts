@@ -1,20 +1,22 @@
-// LOADING State of Donut Chart
+// Loading State of Polar Chart
 
 // Import Chart JS
-import { Doughnut } from "react-chartjs-2";
+import { PolarArea } from "react-chartjs-2";
 
-function LoadingDonutChart() {
+function LoadingPolarChart() {
+  // console.log("Polar graph data reached " + props.fruitData);
+
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
       <h3 className="text-base font-head font-bold text-slate-700">Loading...</h3>
 
-      <Doughnut
+      <PolarArea
         data={{
-          labels: ["Carbs", "Protein", "Fat"],
+          labels: ["A", "B6", "C", "E", "K"],
           datasets: [
             {
-              label: "Grams",
-              data: [1, 1, 1],
+              label: "Percent",
+              data: [1, 1, 1, 1, 1],
               backgroundColor: ["#94a3b8"],
             },
           ],
@@ -24,4 +26,4 @@ function LoadingDonutChart() {
   );
 }
 
-export default LoadingDonutChart;
+export default LoadingPolarChart;
