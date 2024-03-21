@@ -6,7 +6,7 @@ import melonCut from "../../../assets/img/fruits/melon_cut.png";
 
 function LandingHeader() {
   return (
-    <div className="w-full pt-5 pb-10 grid grid-cols-2">
+    <div className="w-full pt-5 pb-10 grid grid-cols-1 sm:grid-cols-2">
       <div>
         <h1 className="font-head text-slate-50 text-5xl font-bold pb-2">
           for the love of <span className="text-yellow-300">fruit</span>
@@ -16,7 +16,7 @@ function LandingHeader() {
           and their prices across Europe.
         </p>
       </div>
-      <div className="flex relative justify-center col">
+      <div className="hidden sm:flex relative justify-center col">
         <img
           src={appleFull}
           className="h-auto -scale-x-100 md:w-3/4 lg:w-4/6 xl:w-1/2 2xl:w-2/5 absolute object-contain"

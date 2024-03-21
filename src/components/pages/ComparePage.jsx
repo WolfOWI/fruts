@@ -183,9 +183,6 @@ function ComparePage() {
               res.totalNutrients.PROCNT.quantity,
               res.totalNutrients.FAT.quantity,
             ]);
-            // console.log("Fat: " + res.totalNutrients.FAT.quantity);
-            // console.log("Protein: " + res.totalNutrients.PROCNT.quantity);
-            // console.log("Carbs: " + res.totalNutrients.CHOCDF.quantity);
 
             setVitAtoK1([
               Math.round(res.totalDaily.VITA_RAE.quantity),
@@ -194,15 +191,6 @@ function ComparePage() {
               Math.round(res.totalDaily.TOCPHA.quantity),
               Math.round(res.totalDaily.VITK1.quantity),
             ]);
-            // console.log("Vit A: " + res.totalDaily.VITA_RAE.quantity);
-            // console.log("Vit B6: " + res.totalDaily.VITB6A.quantity);
-            // console.log("Vit C: " + res.totalDaily.VITC.quantity);
-            // console.log("Vit E: " + res.totalDaily.TOCPHA.quantity);
-            // console.log("Vit K: " + res.totalDaily.VITK1.quantity);
-
-            // console.log("Sugar: " + res.totalNutrients.SUGAR.quantity);
-            // console.log("Water: " + res.totalNutrients.WATER.quantity);
-            // console.log("Fibre: " + res.totalNutrients.FIBTG.quantity);
 
             setIsLoadingDonut1(false);
             setIsLoadingPolar1(false);
@@ -239,9 +227,6 @@ function ComparePage() {
               res.totalNutrients.PROCNT.quantity,
               res.totalNutrients.FAT.quantity,
             ]);
-            // console.log("Fat: " + res.totalNutrients.FAT.quantity);
-            // console.log("Protein: " + res.totalNutrients.PROCNT.quantity);
-            // console.log("Carbs: " + res.totalNutrients.CHOCDF.quantity);
 
             setVitAtoK2([
               Math.round(res.totalDaily.VITA_RAE.quantity),
@@ -250,15 +235,6 @@ function ComparePage() {
               Math.round(res.totalDaily.TOCPHA.quantity),
               Math.round(res.totalDaily.VITK1.quantity),
             ]);
-            // console.log("Vit A: " + res.totalDaily.VITA_RAE.quantity);
-            // console.log("Vit B6: " + res.totalDaily.VITB6A.quantity);
-            // console.log("Vit C: " + res.totalDaily.VITC.quantity);
-            // console.log("Vit E: " + res.totalDaily.TOCPHA.quantity);
-            // console.log("Vit K: " + res.totalDaily.VITK1.quantity);
-
-            // console.log("Sugar: " + res.totalNutrients.SUGAR.quantity);
-            // console.log("Water: " + res.totalNutrients.WATER.quantity);
-            // console.log("Fibre: " + res.totalNutrients.FIBTG.quantity);
 
             setIsLoadingDonut2(false);
             setIsLoadingPolar2(false);
@@ -306,10 +282,6 @@ function ComparePage() {
               res1.totalNutrients.FIBTG.quantity,
               res2.totalNutrients.FIBTG.quantity,
             ]);
-
-            // console.log("Sugar: " + res.totalNutrients.SUGAR.quantity);
-            // console.log("Water: " + res.totalNutrients.WATER.quantity);
-            // console.log("Fibre: " + res.totalNutrients.FIBTG.quantity);
 
             setIsLoadingBar(false);
           } catch (err) {

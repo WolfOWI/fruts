@@ -6,7 +6,7 @@ import DataExplainerParag from "./DataExplainerParag.jsx";
 
 function DataExplainerPoint(props) {
   return (
-    <div className="flex items-center my-4">
+    <div className="flex items-center my-6">
       <DataExplainerIcon about={props.about} />
       <DataExplainerParag about={props.about} />
     </div>

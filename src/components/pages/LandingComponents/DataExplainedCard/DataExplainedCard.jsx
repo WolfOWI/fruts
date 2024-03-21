@@ -4,17 +4,16 @@
 import DataExplainerPoint from "./DataExplainerPoint";
 
 function DataExplainedCard(props) {
-  let title;
+  let textInBlack = "compare";
+  let textInColor;
+  let titleColor;
   let subTitleText;
   let explainerPoints;
 
   switch (props.about) {
     case "calories":
-      title = (
-        <h3 className="text-center font-head font-bold text-xl p-1">
-          compare <span className="text-red-500">calories</span>
-        </h3>
-      );
+      textInColor = "calories";
+      titleColor = "text-red-500";
       subTitleText =
         "Analyse each fruit’s caloric count and how it is composed with a doughnut chart.";
       explainerPoints = (
@@ -27,11 +26,8 @@ function DataExplainedCard(props) {
       break;
 
     case "sugars":
-      title = (
-        <h3 className="text-center font-head font-bold text-xl p-1">
-          compare <span className="text-green-500">sugars & more</span>
-        </h3>
-      );
+      textInColor = "sugars & more";
+      titleColor = "text-green-500";
       subTitleText =
         "Water, sugar and fibre are the large building blocks of fruit, easily understandable by comparative bar graphs.";
       explainerPoints = (
@@ -44,11 +40,8 @@ function DataExplainedCard(props) {
       break;
 
     case "vitamins":
-      title = (
-        <h3 className="text-center font-head font-bold text-xl p-1">
-          compare <span className="text-blue-400">vitamins</span>
-        </h3>
-      );
+      textInColor = "vitamins";
+      titleColor = "text-blue-400";
       subTitleText =
         "Understand the concentration of 5 different vitamins through polar graph visualisations.";
       explainerPoints = (
@@ -63,13 +56,11 @@ function DataExplainedCard(props) {
       break;
 
     case "prices":
-      title = (
-        <h3 className="text-center font-head font-bold text-xl p-1">
-          compare <span className="text-amber-500">calories</span>
-        </h3>
-      );
+      textInColor = "prices";
+      textInBlack = "timeline";
+      titleColor = "text-amber-500";
       subTitleText =
-        "Fruits travel the world, and so do their prices. Get a glimpse of how fruit prices vary different European countries over the years with our timeline page.";
+        "Fruit travel the world, and so do their prices. Get a glimpse of how fruit prices vary different European countries over the years with our timeline page.";
       explainerPoints = (
         <div>
           <DataExplainerPoint about="euros" />
@@ -79,16 +70,22 @@ function DataExplainedCard(props) {
       break;
 
     default:
-      title = <h3 className="text-center font-head font-bold text-xl p-1">title not found</h3>;
+      textInBlack = (
+        <h3 className="text-center font-head font-bold text-xl p-1">title not found</h3>
+      );
       break;
   }
 
   return (
     <div
-      className={`h-fit w-auto flex flex-col items-center cursor-default transition-all duration-300 ease-in-out bg-slate-100 rounded-3xl p-6 mb-2`}
+      className={`h-fit w-auto flex flex-col items-center cursor-default transition-all duration-300 ease-in-out bg-slate-100 rounded-3xl p-6 pt-4 mb-2 `}
     >
-      {title}
-      <h4 className="text-center font-head font-bold text-sm">{subTitleText}</h4>
+      <h3 className="text-center font-head font-bold text-xl p-1">
+        {textInBlack} <span className={titleColor}>{textInColor}</span>
+      </h3>
+      <h4 className="text-center font-head font-bold text-sm text-slate-500 mb-3">
+        {subTitleText}
+      </h4>
       {explainerPoints}
     </div>
   );
