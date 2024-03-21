@@ -16,15 +16,16 @@ function BarChart(props) {
 
   // Split array in different data
   let fullArr = props.fruitData;
-  console.log("Full Arr:  " + fullArr);
+  // console.log("Full Arr:  " + fullArr);
+
   let sugarData = fullArr.slice(0, 2);
-  console.log("Data 1:  " + sugarData);
+  // console.log("Data 1:  " + sugarData);
 
   let waterData = fullArr.slice(2, 4);
-  console.log("Data 2:  " + waterData);
+  // console.log("Data 2:  " + waterData);
 
   let fibreData = fullArr.slice(4, 6);
-  console.log("Data 2:  " + fibreData);
+  // console.log("Data 2:  " + fibreData);
 
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
