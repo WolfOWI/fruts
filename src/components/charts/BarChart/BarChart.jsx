@@ -49,6 +49,16 @@ function BarChart(props) {
             legend: {
               display: false,
             },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return `${context.parsed.x} Grams`;
+                },
+                title: function (context) {
+                  return `Sugar in 100g of ${context[0].label}`;
+                },
+              },
+            },
           },
         }}
       />
@@ -71,6 +81,16 @@ function BarChart(props) {
             legend: {
               display: false,
             },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return `${context.parsed.x} Grams`;
+                },
+                title: function (context) {
+                  return `Water in 100g of ${context[0].label}`;
+                },
+              },
+            },
           },
         }}
       />
@@ -92,6 +112,16 @@ function BarChart(props) {
           plugins: {
             legend: {
               display: false,
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return `${context.parsed.x} Grams`;
+                },
+                title: function (context) {
+                  return `Fibre in 100g of ${context[0].label}`;
+                },
+              },
             },
           },
         }}

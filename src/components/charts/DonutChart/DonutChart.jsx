@@ -28,6 +28,17 @@ function DonutChart(props) {
             },
           ],
         }}
+        options={{
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return `${context.parsed} Grams`;
+                },
+              },
+            },
+          },
+        }}
       />
     </div>
   );

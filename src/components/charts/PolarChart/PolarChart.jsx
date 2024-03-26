@@ -15,7 +15,7 @@ function PolarChart(props) {
 
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-base font-head font-bold text-slate-700">% Daily Vitamins</h3>
+      <h3 className="text-base font-head font-bold text-slate-700">Vitamin Daily %</h3>
 
       <PolarArea
         data={{
@@ -33,6 +33,20 @@ function PolarChart(props) {
               ],
             },
           ],
+        }}
+        options={{
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return `${context.parsed.r}% Daily Intake`;
+                },
+                title: function (context) {
+                  return `Vitamin ${context[0].label}`;
+                },
+              },
+            },
+          },
         }}
       />
     </div>

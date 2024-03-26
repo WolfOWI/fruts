@@ -68,8 +68,7 @@ function LineChart(props) {
             tooltip: {
               callbacks: {
                 label: function (context) {
-                  let label = `${context.dataset.label}: €${context.parsed.y}`;
-                  return label;
+                  return `${context.dataset.label}: €${context.parsed.y}`;
                 },
               },
             },
