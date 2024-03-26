@@ -50,7 +50,7 @@ function LineChart(props) {
           ],
           datasets: [
             {
-              label: `Price per ${fruitName}`,
+              label: `Euros`,
               data: pricesArr, // Dynamically based on pricesArr state
               tension: 0.4,
               pointHoverRadius: 8,
@@ -64,6 +64,56 @@ function LineChart(props) {
           plugins: {
             legend: {
               display: false,
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  let label = `${context.dataset.label}: €${context.parsed.y}`;
+                  return label;
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              display: true,
+              title: {
+                display: true,
+                text: "year",
+                font: {
+                  size: 20,
+                  family: "Quicksand",
+                  weight: "bold",
+                },
+              },
+              ticks: {
+                font: {
+                  size: 16, // Adjusts the font size of the Y-axis labels
+                  family: "Work Sans", // Adjusts the font family of the Y-axis labels
+                },
+              },
+            },
+            y: {
+              display: true,
+              title: {
+                display: true,
+                text: "price",
+                font: {
+                  size: 20,
+                  family: "Quicksand",
+                  weight: "bold",
+                },
+              },
+              ticks: {
+                font: {
+                  size: 16, // Adjusts the font size of the Y-axis labels
+                  family: "Work Sans", // Adjusts the font family of the Y-axis labels
+                },
+                // Include a Euro sign
+                callback: function (value) {
+                  return "€" + value;
+                },
+              },
             },
           },
         }}
