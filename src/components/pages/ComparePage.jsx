@@ -122,8 +122,8 @@ function ComparePage() {
   const [selectedFruit2, setSelectedFruit2] = useState(fruitsList[rdmNum2]);
 
   // States for graphs
-  const [carProFat1, setCarProFat1] = useState([]); //Donut 1 (left) (fat, protein, carbs)
-  const [carProFat2, setCarProFat2] = useState([]); //Donut 2 (right) (fat, protein, carbs)
+  const [carProFatCal1, setCarProFatCal1] = useState([]); //Donut 1 (left) (fat, protein, carbs, calories)
+  const [carProFatCal2, setCarProFatCal2] = useState([]); //Donut 2 (right) (fat, protein, carbs, calories)
   const [vitAtoK1, setVitAtoK1] = useState([]); //Polar 1 (left) (Vit A, B6, C, E, K)
   const [vitAtoK2, setVitAtoK2] = useState([]); //Polar 2 (right) (Vit A, B6, C, E, K)
   const [suWaFi, setSuWaFi] = useState([]); //Bar graph (sugar, water, fibre)
@@ -180,10 +180,11 @@ function ComparePage() {
           try {
             const res = await postFruitInfo(storedFruitObject.id);
             // console.log(res);
-            setCarProFat1([
+            setCarProFatCal1([
               res.totalNutrients.CHOCDF.quantity,
               res.totalNutrients.PROCNT.quantity,
               res.totalNutrients.FAT.quantity,
+              res.totalNutrients.ENERC_KCAL.quantity,
             ]);
 
             setVitAtoK1([
@@ -224,10 +225,11 @@ function ComparePage() {
           try {
             const res = await postFruitInfo(storedFruitObject.id);
             // console.log(res);
-            setCarProFat2([
+            setCarProFatCal2([
               res.totalNutrients.CHOCDF.quantity,
               res.totalNutrients.PROCNT.quantity,
               res.totalNutrients.FAT.quantity,
+              res.totalNutrients.ENERC_KCAL.quantity,
             ]);
 
             setVitAtoK2([
@@ -322,7 +324,7 @@ function ComparePage() {
             {isLoadingDonut1 ? (
               <LoadingDonutChart />
             ) : (
-              <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFat1} />
+              <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFatCal1} />
             )}
           </div>
           {/* Ride Side */}
@@ -330,7 +332,7 @@ function ComparePage() {
             {isLoadingDonut2 ? (
               <LoadingDonutChart />
             ) : (
-              <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFat2} />
+              <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFatCal2} />
             )}
           </div>
         </div>
