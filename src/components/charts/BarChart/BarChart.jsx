@@ -29,7 +29,7 @@ function BarChart(props) {
 
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-base font-head font-bold text-slate-700">Sugar</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700">Sugar</h3>
 
       <Bar
         data={{
@@ -39,12 +39,28 @@ function BarChart(props) {
               axis: "y",
               data: sugarData,
               backgroundColor: [fruitHexColors1[0], fruitHexColors2[0]],
+              borderRadius: 8,
             },
           ],
         }}
         options={{
-          aspectRatio: 10 / 2,
+          aspectRatio: 12 / 2,
           indexAxis: "y",
+          scales: {
+            x: {
+              ticks: {
+                font: {
+                  size: 16,
+                  family: "Work Sans",
+                },
+              },
+            },
+            y: {
+              ticks: {
+                display: false,
+              },
+            },
+          },
           plugins: {
             legend: {
               display: false,
@@ -62,7 +78,7 @@ function BarChart(props) {
           },
         }}
       />
-      <h3 className="text-base font-head font-bold text-slate-700 mt-5">Water</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700 mt-8">Water</h3>
       <Bar
         data={{
           labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
@@ -71,12 +87,28 @@ function BarChart(props) {
               axis: "y",
               data: waterData,
               backgroundColor: [fruitHexColors1[0], fruitHexColors2[0]],
+              borderRadius: 8,
             },
           ],
         }}
         options={{
-          aspectRatio: 10 / 2,
+          aspectRatio: 12 / 2,
           indexAxis: "y",
+          scales: {
+            x: {
+              ticks: {
+                font: {
+                  size: 16,
+                  family: "Work Sans",
+                },
+              },
+            },
+            y: {
+              ticks: {
+                display: false,
+              },
+            },
+          },
           plugins: {
             legend: {
               display: false,
@@ -94,7 +126,7 @@ function BarChart(props) {
           },
         }}
       />
-      <h3 className="text-base font-head font-bold text-slate-700 mt-5">Fibre</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700 mt-8">Fibre</h3>
       <Bar
         data={{
           labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
@@ -103,16 +135,33 @@ function BarChart(props) {
               axis: "y",
               data: fibreData,
               backgroundColor: [fruitHexColors1[0], fruitHexColors2[0]],
+              borderRadius: 8,
             },
           ],
         }}
         options={{
-          aspectRatio: 10 / 2,
+          aspectRatio: 12 / 2,
           indexAxis: "y",
+          scales: {
+            x: {
+              ticks: {
+                font: {
+                  size: 16,
+                  family: "Work Sans",
+                },
+              },
+            },
+            y: {
+              ticks: {
+                display: false,
+              },
+            },
+          },
           plugins: {
             legend: {
               display: false,
             },
+
             tooltip: {
               callbacks: {
                 label: function (context) {

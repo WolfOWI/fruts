@@ -4,7 +4,6 @@
 import { useState, useEffect } from "react";
 
 // Import Chart JS
-import { Chart as ChartJS } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
 // Import Util Functions
@@ -12,9 +11,6 @@ import getFruitHexColors from "../../../utils/getFruitHexColors";
 import euroPricesToNum from "../../../utils/euroPricesToNum";
 
 function LineChart(props) {
-  // Fruit name (passed through as a prop)
-  let fruitName = props.dropdownSelect.name;
-
   // Get colors of fruit for styling
   let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
   let fruitHexColor = fruitHexColors[0];
@@ -87,8 +83,8 @@ function LineChart(props) {
               },
               ticks: {
                 font: {
-                  size: 16, // Adjusts the font size of the Y-axis labels
-                  family: "Work Sans", // Adjusts the font family of the Y-axis labels
+                  size: 16,
+                  family: "Work Sans",
                 },
               },
             },

@@ -1,7 +1,6 @@
 // Fruts-custom Polar Chart
 
 // Import Chart JS
-import { Chart as ChartJS } from "chart.js/auto";
 import { PolarArea } from "react-chartjs-2";
 
 // Import Util Function
@@ -15,7 +14,7 @@ function PolarChart(props) {
 
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-base font-head font-bold text-slate-700">Vitamin Daily %</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700">Vitamin Daily %</h3>
 
       <PolarArea
         data={{
