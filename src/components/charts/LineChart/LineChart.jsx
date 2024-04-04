@@ -10,6 +10,65 @@ import { Line } from "react-chartjs-2";
 import getFruitHexColors from "../../../utils/getFruitHexColors";
 import euroPricesToNum from "../../../utils/euroPricesToNum";
 
+// Chart Options (Setup & Styling)
+const options = {
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false,
+    },
+    tooltip: {
+      callbacks: {
+        label: function (context) {
+          return `${context.dataset.label}: €${context.parsed.y}`;
+        },
+      },
+    },
+  },
+  scales: {
+    x: {
+      display: true,
+      title: {
+        display: true,
+        text: "year",
+        font: {
+          size: 20,
+          family: "Quicksand",
+          weight: "bold",
+        },
+      },
+      ticks: {
+        font: {
+          size: 16,
+          family: "Work Sans",
+        },
+      },
+    },
+    y: {
+      display: true,
+      title: {
+        display: true,
+        text: "price",
+        font: {
+          size: 20,
+          family: "Quicksand",
+          weight: "bold",
+        },
+      },
+      ticks: {
+        font: {
+          size: 16,
+          family: "Work Sans",
+        },
+        // Include a Euro sign
+        callback: function (value) {
+          return "€" + value;
+        },
+      },
+    },
+  },
+};
+
 function LineChart(props) {
   // Get colors of fruit for styling
   let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
@@ -47,7 +106,7 @@ function LineChart(props) {
           datasets: [
             {
               label: `Euros`,
-              data: pricesArr, // Dynamically based on pricesArr state
+              data: pricesArr,
               tension: 0.4,
               pointHoverRadius: 8,
               borderColor: fruitHexColor,
@@ -55,63 +114,7 @@ function LineChart(props) {
             },
           ],
         }}
-        options={{
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false,
-            },
-            tooltip: {
-              callbacks: {
-                label: function (context) {
-                  return `${context.dataset.label}: €${context.parsed.y}`;
-                },
-              },
-            },
-          },
-          scales: {
-            x: {
-              display: true,
-              title: {
-                display: true,
-                text: "year",
-                font: {
-                  size: 20,
-                  family: "Quicksand",
-                  weight: "bold",
-                },
-              },
-              ticks: {
-                font: {
-                  size: 16,
-                  family: "Work Sans",
-                },
-              },
-            },
-            y: {
-              display: true,
-              title: {
-                display: true,
-                text: "price",
-                font: {
-                  size: 20,
-                  family: "Quicksand",
-                  weight: "bold",
-                },
-              },
-              ticks: {
-                font: {
-                  size: 16, // Adjusts the font size of the Y-axis labels
-                  family: "Work Sans", // Adjusts the font family of the Y-axis labels
-                },
-                // Include a Euro sign
-                callback: function (value) {
-                  return "€" + value;
-                },
-              },
-            },
-          },
-        }}
+        options={options}
       />
     </div>
   );

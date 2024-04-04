@@ -7,12 +7,48 @@ import { Bar } from "react-chartjs-2";
 // Import Util Function
 import getFruitHexColors from "../../../utils/getFruitHexColors";
 
+// Function for chart options (setup & styling)
+function chartOptions(chartName) {
+  return {
+    aspectRatio: 12 / 2,
+    indexAxis: "y",
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 16,
+            family: "Work Sans",
+          },
+        },
+      },
+      y: {
+        ticks: {
+          display: false,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return `${context.parsed.x} Grams`;
+          },
+          title: function (context) {
+            return `${chartName} in 100g of ${context[0].label}`;
+          },
+        },
+      },
+    },
+  };
+}
+
 function BarChart(props) {
   // Get fruit hex color palette based on first dropdown selection
   let fruitHexColors1 = getFruitHexColors(props.dropdownSelect1.name);
   let fruitHexColors2 = getFruitHexColors(props.dropdownSelect2.name);
-
-  // console.log("Bar Data: " + props.fruitData);
 
   // Split array in different data
   let fullArr = props.fruitData;
@@ -43,40 +79,7 @@ function BarChart(props) {
             },
           ],
         }}
-        options={{
-          aspectRatio: 12 / 2,
-          indexAxis: "y",
-          scales: {
-            x: {
-              ticks: {
-                font: {
-                  size: 16,
-                  family: "Work Sans",
-                },
-              },
-            },
-            y: {
-              ticks: {
-                display: false,
-              },
-            },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-            tooltip: {
-              callbacks: {
-                label: function (context) {
-                  return `${context.parsed.x} Grams`;
-                },
-                title: function (context) {
-                  return `Sugar in 100g of ${context[0].label}`;
-                },
-              },
-            },
-          },
-        }}
+        options={chartOptions("Sugar")}
       />
       <h3 className="text-xl font-head font-bold text-slate-700 mt-8">Water</h3>
       <Bar
@@ -91,40 +94,7 @@ function BarChart(props) {
             },
           ],
         }}
-        options={{
-          aspectRatio: 12 / 2,
-          indexAxis: "y",
-          scales: {
-            x: {
-              ticks: {
-                font: {
-                  size: 16,
-                  family: "Work Sans",
-                },
-              },
-            },
-            y: {
-              ticks: {
-                display: false,
-              },
-            },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-            tooltip: {
-              callbacks: {
-                label: function (context) {
-                  return `${context.parsed.x} Grams`;
-                },
-                title: function (context) {
-                  return `Water in 100g of ${context[0].label}`;
-                },
-              },
-            },
-          },
-        }}
+        options={chartOptions("Water")}
       />
       <h3 className="text-xl font-head font-bold text-slate-700 mt-8">Fibre</h3>
       <Bar
@@ -139,41 +109,7 @@ function BarChart(props) {
             },
           ],
         }}
-        options={{
-          aspectRatio: 12 / 2,
-          indexAxis: "y",
-          scales: {
-            x: {
-              ticks: {
-                font: {
-                  size: 16,
-                  family: "Work Sans",
-                },
-              },
-            },
-            y: {
-              ticks: {
-                display: false,
-              },
-            },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-
-            tooltip: {
-              callbacks: {
-                label: function (context) {
-                  return `${context.parsed.x} Grams`;
-                },
-                title: function (context) {
-                  return `Fibre in 100g of ${context[0].label}`;
-                },
-              },
-            },
-          },
-        }}
+        options={chartOptions("Fibre")}
       />
     </div>
   );

@@ -6,6 +6,19 @@ import { Doughnut } from "react-chartjs-2";
 // Import Util Function
 import getFruitHexColors from "../../../utils/getFruitHexColors";
 
+// Chart Options (Styling & Setup)
+const options = {
+  plugins: {
+    tooltip: {
+      callbacks: {
+        label: function (context) {
+          return `${context.parsed} Grams`;
+        },
+      },
+    },
+  },
+};
+
 function DonutChart(props) {
   // Get fruit hex color palette based on prop passed
   let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
@@ -26,19 +39,9 @@ function DonutChart(props) {
             },
           ],
         }}
-        options={{
-          plugins: {
-            tooltip: {
-              callbacks: {
-                label: function (context) {
-                  return `${context.parsed} Grams`;
-                },
-              },
-            },
-          },
-        }}
+        options={options}
       />
-      <div className="absolute flex flex-col items-center mt-[5%] sm:mt-[2%] md:mt-[35%] lg:mt-[32%] xl:mt-[20%] 2xl:mt-[10%]">
+      <div className="absolute flex flex-col items-center mt-[5%] sm:mt-[2%] md:mt-[35%] min-[1357px]:mt-[13%] lg:mt-[32%] xl:mt-[20%] 2xl:mt-[10%]">
         <h4 className="flex md:hidden xl:flex text-[600%] mb-[-30px] sm:text-[800%] sm:mb-[-40px] md:text-[200%] md:mb-[0] xl:text-[300%] xl:mb-[-15px] font-head font-bold text-slate-700 ">
           {props.fruitData[3]}
         </h4>

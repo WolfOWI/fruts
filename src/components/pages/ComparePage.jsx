@@ -315,66 +315,74 @@ function ComparePage() {
           />
         </div>
       </div>
-      {/* Content */}
-      <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6 pt-5 pb-20">
-        {/* Caloric Composition */}
-        <div className="flex flex-col md:flex-row justify-center">
-          {/* Left Side */}
-          <div className="w-full md:w-2/6">
-            {isLoadingDonut1 ? (
-              <LoadingDonutChart />
-            ) : (
-              <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFatCal1} />
-            )}
+      {true ? (
+        <div className="flex justify-center items-center ">
+          <h1 className="font-head text-slate-500 text-2xl font-bold">Loading</h1>
+        </div>
+      ) : (
+        <div>
+          {/* Content */}
+          <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6 pt-5 pb-20">
+            {/* Caloric Composition */}
+            <div className="flex flex-col md:flex-row justify-center">
+              {/* Left Side */}
+              <div className="w-full md:w-2/6">
+                {isLoadingDonut1 ? (
+                  <LoadingDonutChart />
+                ) : (
+                  <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFatCal1} />
+                )}
+              </div>
+              {/* Ride Side */}
+              <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
+                {isLoadingDonut2 ? (
+                  <LoadingDonutChart />
+                ) : (
+                  <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFatCal2} />
+                )}
+              </div>
+            </div>
+            {/* Vitamins */}
+            <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
+              {/* Left Side */}
+              <div className="w-full md:w-2/6">
+                {isLoadingPolar1 ? (
+                  <LoadingPolarChart />
+                ) : (
+                  <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
+                )}
+              </div>
+              {/* Ride Side */}
+              <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
+                {isLoadingPolar2 ? (
+                  <LoadingPolarChart />
+                ) : (
+                  <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
+                )}
+              </div>
+            </div>
+            {/* Sugar, Water & Fibre */}
+            <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
+              <div className="w-full md:w-[68%] mt-5 md:mt-0">
+                {isLoadingBar ? (
+                  <LoadingBarChart />
+                ) : (
+                  <BarChart
+                    dropdownSelect1={selectedFruit1}
+                    dropdownSelect2={selectedFruit2}
+                    fruitData={suWaFi}
+                  />
+                )}
+              </div>
+            </div>
           </div>
-          {/* Ride Side */}
-          <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            {isLoadingDonut2 ? (
-              <LoadingDonutChart />
-            ) : (
-              <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFatCal2} />
-            )}
+          <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
+            <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
+              <Footer />
+            </div>
           </div>
         </div>
-        {/* Vitamins */}
-        <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
-          {/* Left Side */}
-          <div className="w-full md:w-2/6">
-            {isLoadingPolar1 ? (
-              <LoadingPolarChart />
-            ) : (
-              <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
-            )}
-          </div>
-          {/* Ride Side */}
-          <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-            {isLoadingPolar2 ? (
-              <LoadingPolarChart />
-            ) : (
-              <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
-            )}
-          </div>
-        </div>
-        {/* Sugar, Water & Fibre */}
-        <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
-          <div className="w-full md:w-[68%] mt-5 md:mt-0">
-            {isLoadingBar ? (
-              <LoadingBarChart />
-            ) : (
-              <BarChart
-                dropdownSelect1={selectedFruit1}
-                dropdownSelect2={selectedFruit2}
-                fruitData={suWaFi}
-              />
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
-        <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
-          <Footer />
-        </div>
-      </div>
+      )}
     </div>
   );
 }
