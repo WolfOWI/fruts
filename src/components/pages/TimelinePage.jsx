@@ -37,6 +37,10 @@ import berryCut from "../../assets/img/fruits/berry_cut.png";
 import melonFull from "../../assets/img/fruits/melon.png";
 import melonCut from "../../assets/img/fruits/melon_cut.png";
 
+// Import Loading Animation (from UIBall - LDRS)
+import { hourglass } from "ldrs";
+hourglass.register();
+
 // Fruit Options (array of objects)
 const fruitsList = [
   {
@@ -113,13 +117,18 @@ function TimelinePage() {
   // State of Fruit Price Data
   const [fruitPriceData, setFruitPriceData] = useState([]);
 
+  // Loading State
+  const [isLoading, setIsLoading] = useState(true); //Waiting for data fromAPI
+
   // When the state of dropdown is changed
   useEffect(() => {
+    setIsLoading(true);
     // console.log("useEffect" + fruitNameToPlural(selectedFruit.name));
     getDecadeFruitPrices(fruitNameToPlural(selectedFruit.name))
       .then((arr) => {
         // console.log("Results from getDecadeFruitPrices: ", arr);
         setFruitPriceData(arr);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log("Failed to get fruit prices: ", err);
@@ -138,19 +147,26 @@ function TimelinePage() {
           <TimelineHeader dropdownSelect={selectedFruit} dropdownSetSelect={setSelectedFruit} />
         </div>
       </div>
-      {/* Body */}
-      <div className="">
-        {/* Content */}
-        <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6 pt-5 pb-20">
-          {/* Line Chart */}
-          <div className="w-full">
-            <LineChart dropdownSelect={selectedFruit} dataArr={fruitPriceData} />
+      {/* If still loading data, show pre-loader */}
+      {isLoading ? (
+        <div className="flex justify-center items-center m-52 bg-transparent">
+          <l-hourglass size="80" bg-opacity="0.5" speed="2" color="#60a5fa"></l-hourglass>
+          <h1 className="font-head text-slate-500 text-2xl font-bold ml-6">Getting Fruit Data</h1>
+        </div>
+      ) : (
+        <div className="">
+          {/* Content */}
+          <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6 pt-8 pb-20">
+            {/* Line Chart */}
+            <div className="w-full">
+              <LineChart dropdownSelect={selectedFruit} dataArr={fruitPriceData} />
+            </div>
           </div>
         </div>
-        <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
-          <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
-            <Footer />
-          </div>
+      )}
+      <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
+        <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
+          <Footer />
         </div>
       </div>
     </div>

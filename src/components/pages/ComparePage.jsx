@@ -14,11 +14,8 @@ import { getApiFruitID, postFruitInfo } from "../../api/edamamAPI.js";
 import NavBar from "../NavBar/NavBar.jsx";
 import CompareHeader from "./CompareComponents/CompareHeader.jsx";
 import DonutChart from "../charts/DonutChart/DonutChart.jsx";
-import LoadingDonutChart from "../charts/DonutChart/LoadingDonutChart.jsx";
 import PolarChart from "../charts/PolarChart/PolarChart.jsx";
-import LoadingPolarChart from "../charts/PolarChart/LoadingPolarChart.jsx";
 import BarChart from "../charts/BarChart/BarChart.jsx";
-import LoadingBarChart from "../charts/BarChart/LoadingBarChart.jsx";
 import Footer from "../Footer/Footer.jsx";
 
 // Fruit Imagery
@@ -40,6 +37,10 @@ import berryFull from "../../assets/img/fruits/berry.png";
 import berryCut from "../../assets/img/fruits/berry_cut.png";
 import melonFull from "../../assets/img/fruits/melon.png";
 import melonCut from "../../assets/img/fruits/melon_cut.png";
+
+// Import Loading Animation (from UIBall - LDRS)
+import { hourglass } from "ldrs";
+hourglass.register();
 
 // Fruit Options (array of objects)
 const fruitsList = [
@@ -128,12 +129,8 @@ function ComparePage() {
   const [vitAtoK2, setVitAtoK2] = useState([]); //Polar 2 (right) (Vit A, B6, C, E, K)
   const [suWaFi, setSuWaFi] = useState([]); //Bar graph (sugar, water, fibre)
 
-  // Loading States
-  const [isLoadingDonut1, setIsLoadingDonut1] = useState(true); //Donut 1 (left) loading state
-  const [isLoadingDonut2, setIsLoadingDonut2] = useState(true); //Donut 2 (right) loading state
-  const [isLoadingPolar1, setIsLoadingPolar1] = useState(true); //Polar 1 (left) loading state
-  const [isLoadingPolar2, setIsLoadingPolar2] = useState(true); //Polar 2 (right) loading state
-  const [isLoadingBar, setIsLoadingBar] = useState(true); //Bar graph loading state
+  // Loading State
+  const [isLoading, setIsLoading] = useState(true); //Waiting for data fromAPI
 
   // State for fruitID initialisation (from api)
   const [idsInitialised, setIdsInitialised] = useState(false);
@@ -194,9 +191,6 @@ function ComparePage() {
               Math.round(res.totalDaily.TOCPHA.quantity),
               Math.round(res.totalDaily.VITK1.quantity),
             ]);
-
-            setIsLoadingDonut1(false);
-            setIsLoadingPolar1(false);
           } catch (err) {
             console.log("EdamamAPI - Unable to POST fruitID 1: " + err);
           }
@@ -239,9 +233,6 @@ function ComparePage() {
               Math.round(res.totalDaily.TOCPHA.quantity),
               Math.round(res.totalDaily.VITK1.quantity),
             ]);
-
-            setIsLoadingDonut2(false);
-            setIsLoadingPolar2(false);
           } catch (err) {
             console.log("EdamamAPI - Unable to POST fruitID 2: " + err);
           }
@@ -253,6 +244,7 @@ function ComparePage() {
 
   // When Dropdown 1 OR 2 changes OR FruitIDs initialised
   useEffect(() => {
+    setIsLoading(true);
     if (idsInitialised) {
       async function fetchFruitInfo() {
         // Stored fruit IDs
@@ -287,7 +279,7 @@ function ComparePage() {
               res2.totalNutrients.FIBTG.quantity,
             ]);
 
-            setIsLoadingBar(false);
+            setIsLoading(false);
           } catch (err) {
             console.log("EdamamAPI - Unable to POST fruitID 1 &/ 2: " + err);
           }
@@ -301,7 +293,7 @@ function ComparePage() {
   let gradient = get2FruitGradient(selectedFruit1.name, selectedFruit2.name, "horisontal");
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-slate-50 h-dvh">
       {/* Header / Hero */}
       <div className={`${gradient} rounded-b-3xl`}>
         {/* Content */}
@@ -315,9 +307,11 @@ function ComparePage() {
           />
         </div>
       </div>
-      {true ? (
-        <div className="flex justify-center items-center ">
-          <h1 className="font-head text-slate-500 text-2xl font-bold">Loading</h1>
+      {/* If still loading data, show pre-loader */}
+      {isLoading ? (
+        <div className="flex justify-center items-center h-80 bg-transparent">
+          <l-hourglass size="80" bg-opacity="0.5" speed="2" color="#60a5fa"></l-hourglass>
+          <h1 className="font-head text-slate-500 text-2xl font-bold ml-6">Getting Fruit Data</h1>
         </div>
       ) : (
         <div>
@@ -327,52 +321,32 @@ function ComparePage() {
             <div className="flex flex-col md:flex-row justify-center">
               {/* Left Side */}
               <div className="w-full md:w-2/6">
-                {isLoadingDonut1 ? (
-                  <LoadingDonutChart />
-                ) : (
-                  <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFatCal1} />
-                )}
+                <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFatCal1} />
               </div>
               {/* Ride Side */}
               <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-                {isLoadingDonut2 ? (
-                  <LoadingDonutChart />
-                ) : (
-                  <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFatCal2} />
-                )}
+                <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFatCal2} />
               </div>
             </div>
             {/* Vitamins */}
             <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
               {/* Left Side */}
               <div className="w-full md:w-2/6">
-                {isLoadingPolar1 ? (
-                  <LoadingPolarChart />
-                ) : (
-                  <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
-                )}
+                <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
               </div>
               {/* Ride Side */}
               <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
-                {isLoadingPolar2 ? (
-                  <LoadingPolarChart />
-                ) : (
-                  <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
-                )}
+                <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
               </div>
             </div>
             {/* Sugar, Water & Fibre */}
             <div className="flex flex-col md:flex-row justify-center mt-16 md:mt-3">
               <div className="w-full md:w-[68%] mt-5 md:mt-0">
-                {isLoadingBar ? (
-                  <LoadingBarChart />
-                ) : (
-                  <BarChart
-                    dropdownSelect1={selectedFruit1}
-                    dropdownSelect2={selectedFruit2}
-                    fruitData={suWaFi}
-                  />
-                )}
+                <BarChart
+                  dropdownSelect1={selectedFruit1}
+                  dropdownSelect2={selectedFruit2}
+                  fruitData={suWaFi}
+                />
               </div>
             </div>
           </div>
