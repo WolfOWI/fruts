@@ -293,7 +293,7 @@ function ComparePage() {
   let gradient = get2FruitGradient(selectedFruit1.name, selectedFruit2.name, "horisontal");
 
   return (
-    <div className="bg-slate-50 h-dvh">
+    <div className="bg-slate-50">
       {/* Header / Hero */}
       <div className={`${gradient} rounded-b-3xl`}>
         {/* Content */}
@@ -309,9 +309,11 @@ function ComparePage() {
       </div>
       {/* If still loading data, show pre-loader */}
       {isLoading ? (
-        <div className="flex justify-center items-center h-80 bg-transparent">
-          <l-hourglass size="80" bg-opacity="0.5" speed="2" color="#60a5fa"></l-hourglass>
-          <h1 className="font-head text-slate-500 text-2xl font-bold ml-6">Getting Fruit Data</h1>
+        <div className="flex justify-center items-start h-dvh bg-transparent pt-32">
+          <div className="flex items-center">
+            <l-hourglass size="80" bg-opacity="0.5" speed="2" color="#60a5fa"></l-hourglass>
+            <h1 className="font-head text-slate-500 text-2xl font-bold ml-6">Getting Fruit Data</h1>
+          </div>
         </div>
       ) : (
         <div>
