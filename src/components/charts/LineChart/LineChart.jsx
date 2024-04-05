@@ -62,7 +62,7 @@ const options = {
       display: true,
       title: {
         display: true,
-        text: "price",
+        text: "price (100kg)",
         font: {
           size: 20,
           family: "Quicksand",
