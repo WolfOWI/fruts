@@ -6,6 +6,7 @@
 // ----------------------------------
 // Chart JS
 import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
 // Util Function
 import getFruitHexColors from "../../../utils/getFruitHexColors";
 // ----------------------------------

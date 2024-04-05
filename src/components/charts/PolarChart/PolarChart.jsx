@@ -2,10 +2,12 @@
 
 // IMPORTS
 // ----------------------------------
-// Chart JS
-import { PolarArea } from "react-chartjs-2";
 // Util Function
 import getFruitHexColors from "../../../utils/getFruitHexColors";
+// Chart JS
+import { PolarArea } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
+
 // ----------------------------------
 
 // CHART OPTIONS
