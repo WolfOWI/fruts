@@ -10,10 +10,22 @@ import getFruitHexColors from "../../../utils/getFruitHexColors";
 // Function for chart options (setup & styling)
 function chartOptions(chartName) {
   return {
+    elements: {
+      bar: {
+        inflateAmount: 2,
+      },
+    },
     aspectRatio: 12 / 2,
     indexAxis: "y",
     scales: {
       x: {
+        border: {
+          width: 3,
+          color: "#e2e8f0",
+        },
+        grid: {
+          display: false,
+        },
         ticks: {
           font: {
             size: 16,
@@ -22,6 +34,12 @@ function chartOptions(chartName) {
         },
       },
       y: {
+        border: {
+          display: false,
+        },
+        grid: {
+          display: false,
+        },
         ticks: {
           display: false,
         },
@@ -65,7 +83,10 @@ function BarChart(props) {
 
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-xl font-head font-bold text-slate-700">Sugar</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700 mb-2">
+        Sugar
+        <span className="text-base font-normal"> (g)</span>
+      </h3>
 
       <Bar
         data={{
@@ -81,7 +102,9 @@ function BarChart(props) {
         }}
         options={chartOptions("Sugar")}
       />
-      <h3 className="text-xl font-head font-bold text-slate-700 mt-8">Water</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700 mt-12 mb-2">
+        Water <span className="text-base font-normal"> (g)</span>
+      </h3>
       <Bar
         data={{
           labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
@@ -96,7 +119,9 @@ function BarChart(props) {
         }}
         options={chartOptions("Water")}
       />
-      <h3 className="text-xl font-head font-bold text-slate-700 mt-8">Fibre</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700 mt-12 mb-2">
+        Fibre <span className="text-base font-normal"> (g)</span>
+      </h3>
       <Bar
         data={{
           labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
