@@ -1,16 +1,18 @@
 // Fruts-custom Line Chart
 
-// Import React Hooks
-import { useState, useEffect } from "react";
-
+// IMPORTS
+// ----------------------------------
 // Import Chart JS
 import { Line } from "react-chartjs-2";
-
-// Import Util Functions
+// React Hooks
+import { useState, useEffect } from "react";
+// Util Functions
 import getFruitHexColors from "../../../utils/getFruitHexColors";
 import euroPricesToNum from "../../../utils/euroPricesToNum";
+// ----------------------------------
 
-// Chart Options (Setup & Styling)
+// CHART OPTIONS
+// ----------------------------------
 const options = {
   maintainAspectRatio: false,
   plugins: {
@@ -82,26 +84,40 @@ const options = {
     },
   },
 };
+// ----------------------------------
 
+// LINE CHART COMPONENT
+// ----------------------------------
 function LineChart(props) {
+  // COLOUR
+  // - - - - - - - - - - - - -
   // Get colors of fruit for styling
   let fruitHexColors = getFruitHexColors(props.dropdownSelect.name);
   let fruitHexColor = fruitHexColors[0];
+  // - - - - - - - - - - - - -
 
-  // State to hold the prices from props.dataArr
+  // STATE
+  // - - - - - - - - - - - - -
+  // Hold price values from props.dataArr
   const [pricesArr, setPricesArr] = useState([]);
+  // - - - - - - - - - - - - -
 
+  // EFFECT
+  // - - - - - - - - - - - - -
+  // When data changes
   useEffect(() => {
-    // Map props.dataArr to extract the prices
+    // Map props.dataArr properties & extract the prices
     if (props.dataArr) {
       const newPricesArr = props.dataArr.map((obj) => obj.price);
       const chartData = euroPricesToNum(newPricesArr);
       setPricesArr(chartData);
     }
   }, [props.dataArr]);
+  // - - - - - - - - - - - - -
 
   return (
     <div className="p-4 h-72 sm:h-96">
+      {/* Line Chart Content */}
       <Line
         data={{
           labels: [
@@ -133,5 +149,6 @@ function LineChart(props) {
     </div>
   );
 }
+// ----------------------------------
 
 export default LineChart;

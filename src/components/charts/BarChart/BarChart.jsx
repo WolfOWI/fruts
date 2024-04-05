@@ -1,13 +1,16 @@
 // Fruts-custom Bar Chart
 
-// Import ChartJS
-import { Chart as ChartJS } from "chart.js/auto";
+// IMPORTS
+// ----------------------------------
+// ChartJS
 import { Bar } from "react-chartjs-2";
-
-// Import Util Function
+// Util Functions
 import getFruitHexColors from "../../../utils/getFruitHexColors";
+// ----------------------------------
 
-// Function for chart options (setup & styling)
+// CHART OPTIONS FUNCTION
+// ----------------------------------
+// For chart options, setup & styling
 function chartOptions(chartName) {
   return {
     elements: {
@@ -66,32 +69,36 @@ function chartOptions(chartName) {
     },
   };
 }
+// ----------------------------------
 
+// BAR CHART COMPONENT
+// ----------------------------------
 function BarChart(props) {
+  // COLOUR
+  // - - - - - - - - - - - - -
   // Get fruit hex color palette based on first dropdown selection
   let fruitHexColors1 = getFruitHexColors(props.dropdownSelect1.name);
   let fruitHexColors2 = getFruitHexColors(props.dropdownSelect2.name);
+  // - - - - - - - - - - - - -
 
-  // Split array in different data
+  // DATA
+  // - - - - - - - - - - - - -
+  // Split array in different data (sugar, water, fibre data)
   let fullArr = props.fruitData;
-  // console.log("Full Arr:  " + fullArr);
-
   let sugarData = fullArr.slice(0, 2);
-  // console.log("Data 1:  " + sugarData);
-
   let waterData = fullArr.slice(2, 4);
-  // console.log("Data 2:  " + waterData);
-
   let fibreData = fullArr.slice(4, 6);
-  // console.log("Data 2:  " + fibreData);
+  // - - - - - - - - - - - - -
 
   return (
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
+      {/* Bar Chart 1 Title - Sugar */}
       <h3 className="text-xl font-head font-bold text-slate-700 mb-2">
         Sugar
         <span className="text-base font-normal"> (100g)</span>
       </h3>
 
+      {/* Bar Chart 1 Content - Sugar */}
       <Bar
         data={{
           labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
@@ -106,9 +113,12 @@ function BarChart(props) {
         }}
         options={chartOptions("Sugar")}
       />
+
+      {/* Bar Chart 2 Title - Water */}
       <h3 className="text-xl font-head font-bold text-slate-700 mt-12 mb-2">
         Water <span className="text-base font-normal"> (100g)</span>
       </h3>
+      {/* Bar Chart 2 Content - Water */}
       <Bar
         data={{
           labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
@@ -123,9 +133,11 @@ function BarChart(props) {
         }}
         options={chartOptions("Water")}
       />
+      {/* Bar Chart 3 Title - Fibre */}
       <h3 className="text-xl font-head font-bold text-slate-700 mt-12 mb-2">
         Fibre <span className="text-base font-normal"> (100g)</span>
       </h3>
+      {/* Bar Chart 3 Content - Fibre */}
       <Bar
         data={{
           labels: [props.dropdownSelect1.name, props.dropdownSelect2.name],
@@ -143,5 +155,6 @@ function BarChart(props) {
     </div>
   );
 }
+// ----------------------------------
 
 export default BarChart;

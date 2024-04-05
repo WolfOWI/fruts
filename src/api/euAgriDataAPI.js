@@ -3,11 +3,15 @@
 // Import Axios
 import axios from "axios";
 
+// GET FRUIT PRICES FROM API
+// ----------------------------------
 export default function getDecadeFruitPrices(fruit) {
-  // Base URL for API
+  // URL & PARAMETERS
+  // - - - - - - - - - - -
+  // Base URL
   const baseURL = "/api?_method=get";
 
-  // Parameters for URL
+  // Parameters
   const params = new URLSearchParams({
     products: fruit,
     memberStateCodes: "EU",
@@ -17,15 +21,12 @@ export default function getDecadeFruitPrices(fruit) {
 
   // The complete url
   const url = `${baseURL}&${params}`;
-
-  // console.log(`Making request to: ${url}`);
+  // - - - - - - - - - - -
 
   return axios
     .get(url)
     .then((res) => {
       const filteredData = filterTo1PerYear(filterToSingleVariety(res.data));
-      // console.log("Filtered Array: ");
-      // console.log(filteredData);
       return filteredData;
     })
     .catch((err) => {
@@ -33,6 +34,7 @@ export default function getDecadeFruitPrices(fruit) {
       throw err;
     });
 }
+// ----------------------------------
 
 // HELPER FUNCTIONS
 // -----------------------------------

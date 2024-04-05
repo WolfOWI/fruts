@@ -1,5 +1,7 @@
-// Fruit Colors Hex Color Utility
-// Get an array of 5 color based on fruit type
+// UTILITY FUNCTION:
+// ----------------------------------
+// Get an array of 5 x HEX CODES (colours) based on fruit type (for graph use)
+// Example: ["#6ccbd0", "#6adac7", "#7be6b6", "#9cf09f", "#c8f688"]
 
 function getFruitHexColors(fruit) {
   const fruitColor = {
@@ -18,5 +20,6 @@ function getFruitHexColors(fruit) {
 
   return fruitColor[fruit];
 }
+// ----------------------------------
 
 export default getFruitHexColors;

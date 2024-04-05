@@ -1,5 +1,6 @@
-// Fruit Colour BG Utility
-// Get a BG color based on fruit type
+// UTILITY FUNCTION:
+// ----------------------------------
+// Returns a background HEX CODE (colour) based on given fruit type
 
 function get1FruitBGColor(fruit) {
   const fruitColor = {
@@ -18,5 +19,6 @@ function get1FruitBGColor(fruit) {
 
   return fruitColor[fruit];
 }
+// ----------------------------------
 
 export default get1FruitBGColor;

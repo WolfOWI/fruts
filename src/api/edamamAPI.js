@@ -1,10 +1,13 @@
 // Edamam API (Fruit Nutritional information)
 
-// Import Axios
+// IMPORTS
+// ----------------------------------
+// Axios (for API calls)
 import axios from "axios";
+// ----------------------------------
 
-// Urls for API:
-// -----------------
+// URLs FOR API CALLS
+// ----------------------------------
 // App ID & key
 const appId = "d15c3f0b";
 const appKey = "914f5205bf207f61da61c4697f85ad9b";
@@ -14,9 +17,10 @@ const baseGetUrl = `https://api.edamam.com/api/food-database/v2/parser?app_id=${
 
 // Base Urls for POST
 const basePostUrl = `https://api.edamam.com/api/food-database/v2/nutrients?app_id=${appId}&app_key=${appKey}`;
-// -----------------
+// ----------------------------------
 
-// STEP 1: Get fruit api ID
+// CALL 1: GET FRUIT ID
+// ----------------------------------
 export function getApiFruitID(fruit) {
   console.log("Making the GET fruit API call");
   // The get url
@@ -33,8 +37,10 @@ export function getApiFruitID(fruit) {
       throw err;
     });
 }
+// ----------------------------------
 
-// STEP 2: Post fruit ID to get information about fruit
+// CALL 2: POST FRUIT ID FOR ADDITIONAL FRUIT INFO
+// ----------------------------------
 export function postFruitInfo(fruitApiID) {
   console.log("Making the POST fruit API call");
   const dataToPost = {
@@ -57,7 +63,4 @@ export function postFruitInfo(fruitApiID) {
       throw err;
     });
 }
-// HELPER FUNCTIONS
-// -----------------------------------
-
-// -----------------------------------
+// ----------------------------------

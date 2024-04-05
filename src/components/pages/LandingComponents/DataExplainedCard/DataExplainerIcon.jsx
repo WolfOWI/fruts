@@ -1,6 +1,8 @@
-// Data Explainer Card Icons
+// Data Explainer Card Icons (Used in Data Explainer Points in Data Explained Cards)
 
-// Import icons
+// IMPORTS
+// ----------------------------------
+// Icons
 import grillIcon from "../../../../assets/icons/things/grill_icon.svg";
 import fireIcon from "../../../../assets/icons/things/fire_icon.svg";
 import burgerIcon from "../../../../assets/icons/things/burger_icon.svg";
@@ -14,11 +16,14 @@ import eIcon from "../../../../assets/icons/letters/e_icon.svg";
 import kIcon from "../../../../assets/icons/letters/k_icon.svg";
 import euroIcon from "../../../../assets/icons/things/euro_icon.svg";
 import clockIcon from "../../../../assets/icons/things/clock_icon.svg";
+// ----------------------------------
 
+// DATA EXPLAINER ICON COMPONENT
+// ----------------------------------
 function DataExplainerIcon(props) {
   let icon;
 
-  // Different Icons based on ABOUT property
+  // Return a different icons based on ABOUT property
   switch (props.about) {
     case "protein":
       icon = grillIcon;
@@ -79,5 +84,6 @@ function DataExplainerIcon(props) {
 
   return <img src={icon} alt={props.about + " icon"} className="w-8" />;
 }
+// ----------------------------------
 
 export default DataExplainerIcon;

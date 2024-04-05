@@ -1,8 +1,13 @@
-// Compare Page Header
+// Compare Page Header (on Compare Page)
 
-// Components Import
+// IMPORTS
+// ----------------------------------
+// Components
 import DropdownFruits from "../../DropdownFruits/DropdownFruits";
+// ----------------------------------
 
+// COMPARE HEADER COMPONENT
+// ----------------------------------
 function CompareHeader({
   dropdownSelect1,
   dropdownSetSelect1,
@@ -11,7 +16,7 @@ function CompareHeader({
 }) {
   return (
     <div className="relative w-full pt-5 pb-10">
-      {/* Fruit Left */}
+      {/* Fruit Image Left */}
       <div className="animate-left_in transition-all">
         <img
           src={dropdownSelect1.imgSrcFull}
@@ -19,7 +24,7 @@ function CompareHeader({
           className="absolute w-72 hidden md:block sm:-left-56 md:-left-48 translate-y-6"
         />
       </div>
-      {/* Fruit Right */}
+      {/* Fruit Image Right */}
       <div className="animate-right_in transition-all">
         <img
           src={dropdownSelect2.imgSrcFull}
@@ -27,11 +32,13 @@ function CompareHeader({
           className="absolute w-72 hidden md:block sm:-right-56 md:-right-48 translate-y-6"
         />
       </div>
-      {/* Content Center */}
+      {/* Centre Content */}
+      {/* Title */}
       <div className="text-center">
         <h1 className="font-head text-slate-50 text-5xl font-bold pb-2">compare</h1>
         <p className="text-sm font-body mix-blend-overlay">nutrients per 100g</p>
       </div>
+      {/* Dropdowns */}
       <div className="flex justify-center items-center mt-2 flex-col md:flex-row">
         <div className="w-full md:w-2/6">
           <DropdownFruits selectedFruit={dropdownSelect1} setSelectedFruit={dropdownSetSelect1} />
@@ -43,5 +50,6 @@ function CompareHeader({
     </div>
   );
 }
+// ----------------------------------
 
 export default CompareHeader;

@@ -1,15 +1,23 @@
-// Social Media Icon Buttons (Footer)
+// Social Media Icon Buttons (Used in Footer)
 
-// Import Icons
+// IMPORTS
+// ----------------------------------
+// Icons
 import fbSocialIcon from "../../assets/icons/social/facebook_icon.svg";
 import xSocialIcon from "../../assets/icons/social/x_icon.svg";
 import instaSocialIcon from "../../assets/icons/social/instagram_icon.svg";
 import ytSocialIcon from "../../assets/icons/social/youtube_icon.svg";
+// ----------------------------------
 
+// SOCIAL MEDIA BUTTON COMPONENT
+// ----------------------------------
 function SocialIconBtn(props) {
+  // ICON TYPE
+  // - - - - - - - - - - - - -
+  // Icon image source
   let iconSrc = "";
 
-  // What icon to use based on SOCIAL property
+  // What icon to use based on SOCIAL prop
   switch (props.social) {
     case "facebook":
       iconSrc = fbSocialIcon;
@@ -30,8 +38,8 @@ function SocialIconBtn(props) {
     default:
       break;
   }
+  // - - - - - - - - - - - - -
 
-  // Return icon anchor element
   return (
     <a
       className="w-5 flex justify-center items-center"
@@ -47,5 +55,6 @@ function SocialIconBtn(props) {
     </a>
   );
 }
+// ----------------------------------
 
 export default SocialIconBtn;

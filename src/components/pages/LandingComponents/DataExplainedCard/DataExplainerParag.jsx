@@ -1,9 +1,11 @@
-// Data Explainer Point Paragraph (Landing page)
+// Data Explainer Point Paragraph (Used in DataExplainerPoints in Data Explained Cards)
 
+// DATA EXPLAINER PARAGRAPH COMPONENT
+// ----------------------------------
 function DataExplainerParag(props) {
   let paragraph = "";
 
-  // Different text based on ABOUT property
+  // Return different text based on ABOUT property
   switch (props.about) {
     case "protein":
       paragraph = "Protein: The building block of life, contributing to muscle repair and growth.";
@@ -69,5 +71,6 @@ function DataExplainerParag(props) {
 
   return <p className="ms-2 text-sm">{paragraph}</p>;
 }
+// ----------------------------------
 
 export default DataExplainerParag;

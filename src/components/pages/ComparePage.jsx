@@ -1,24 +1,23 @@
-// Compare Page
+// Fruts Compare Page
 
-// Import React Hooks
+// IMPORTS
+// ----------------------------------
+// Hooks
 import { useState, useEffect } from "react";
-
-// Import Util functions
+// API
+import { getApiFruitID, postFruitInfo } from "../../api/edamamAPI.js";
+// Util functions
 import get2FruitGradient from "../../utils/get2FruitGradient.js";
 import generateRandomNum from "../../utils/generateRandomNum.js";
-
-// Import API functions
-import { getApiFruitID, postFruitInfo } from "../../api/edamamAPI.js";
-
-// Import Components
+// Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
 import CompareHeader from "./CompareComponents/CompareHeader.jsx";
+import Footer from "../Footer/Footer.jsx";
+// Components (Compare Page Specific)
 import DonutChart from "../charts/DonutChart/DonutChart.jsx";
 import PolarChart from "../charts/PolarChart/PolarChart.jsx";
 import BarChart from "../charts/BarChart/BarChart.jsx";
-import Footer from "../Footer/Footer.jsx";
-
-// Fruit Imagery
+// Images
 import appleFull from "../../assets/img/fruits/apple.png";
 import appleCut from "../../assets/img/fruits/apple_cut.png";
 import kiwiFull from "../../assets/img/fruits/kiwi.png";
@@ -37,12 +36,13 @@ import berryFull from "../../assets/img/fruits/berry.png";
 import berryCut from "../../assets/img/fruits/berry_cut.png";
 import melonFull from "../../assets/img/fruits/melon.png";
 import melonCut from "../../assets/img/fruits/melon_cut.png";
-
-// Import Loading Animation (from UIBall - LDRS)
+// Loading Animation (from UIBall - LDRS)
 import { hourglass } from "ldrs";
 hourglass.register();
+// ----------------------------------
 
-// Fruit Options (array of objects)
+// FRUIT VISUAL OBJECTS
+// ----------------------------------
 const fruitsList = [
   {
     id: 1,
@@ -108,34 +108,44 @@ const fruitsList = [
     hoverColor: "hover:bg-green-100",
   },
 ];
+// ----------------------------------
 
-// Generate 2 different random numbers
-let rdmNum1 = generateRandomNum(9);
-let rdmNum2 = generateRandomNum(9);
-while (rdmNum1 === rdmNum2) {
-  // (regenerate if the same)
-  rdmNum2 = generateRandomNum(9);
-}
-
+// COMPARE PAGE COMPONENT
+// ----------------------------------
 function ComparePage() {
-  // States for fruit dropdowns
+  // RANDOM FRUIT SHOWN ON PAGE LOAD
+  // - - - - - - - - - - -
+  // Generate 2 different random numbers
+  let rdmNum1 = generateRandomNum(9);
+  let rdmNum2 = generateRandomNum(9);
+  while (rdmNum1 === rdmNum2) {
+    // (regenerate if the same)
+    rdmNum2 = generateRandomNum(9);
+  }
+  // - - - - - - - - - - -
+
+  // STATES
+  // - - - - - - - - - - -
+  // Fruit dropdown states
   const [selectedFruit1, setSelectedFruit1] = useState(fruitsList[rdmNum1]);
   const [selectedFruit2, setSelectedFruit2] = useState(fruitsList[rdmNum2]);
-
-  // States for graphs
+  // Graph API Data States
   const [carProFatCal1, setCarProFatCal1] = useState([]); //Donut 1 (left) (fat, protein, carbs, calories)
   const [carProFatCal2, setCarProFatCal2] = useState([]); //Donut 2 (right) (fat, protein, carbs, calories)
   const [vitAtoK1, setVitAtoK1] = useState([]); //Polar 1 (left) (Vit A, B6, C, E, K)
   const [vitAtoK2, setVitAtoK2] = useState([]); //Polar 2 (right) (Vit A, B6, C, E, K)
   const [suWaFi, setSuWaFi] = useState([]); //Bar graph (sugar, water, fibre)
-
-  // Loading State
-  const [isLoading, setIsLoading] = useState(true); //Waiting for data fromAPI
-
-  // State for fruitID initialisation (from api)
+  // API Loading State
+  const [isLoading, setIsLoading] = useState(true); //Waiting for data from API
+  // FruitID initialisation (from api) - first time setup (sessionStorage)
   const [idsInitialised, setIdsInitialised] = useState(false);
+  // - - - - - - - - - - -
 
-  // Initialise fruit ids (from api)
+  // EFFECT
+  // - - - - - - - - - - -
+  // STORE FRUIT IDs IN SESSIONSTORAGE (API CALL 1)
+  // . . . . . . . . .
+  // Run on page load for the first time only
   useEffect(() => {
     async function initialiseFruitIds() {
       // If Ids don't exist already
@@ -157,8 +167,11 @@ function ComparePage() {
     }
     initialiseFruitIds();
   }, []);
+  // . . . . . . . . .
 
-  // Dropdown 1 Change or FruitIDs initialised
+  // UPDATE FRUIT 1 GRAPHS (DONUT & POLAR)
+  // . . . . . . . . .
+  // (When dropdown 1 changes or FruitIDs stored)
   useEffect(() => {
     if (idsInitialised) {
       async function fetchFruitInfo() {
@@ -176,7 +189,7 @@ function ComparePage() {
 
           try {
             const res = await postFruitInfo(storedFruitObject.id);
-            // console.log(res);
+            // Set Carbs, Protein, Fat & Calories - Graph 1
             setCarProFatCal1([
               res.totalNutrients.CHOCDF.quantity,
               res.totalNutrients.PROCNT.quantity,
@@ -184,6 +197,7 @@ function ComparePage() {
               res.totalNutrients.ENERC_KCAL.quantity,
             ]);
 
+            // Set Vit A, B6, C, E, K - Graph 1
             setVitAtoK1([
               Math.round(res.totalDaily.VITA_RAE.quantity),
               Math.round(res.totalDaily.VITB6A.quantity),
@@ -199,8 +213,11 @@ function ComparePage() {
       fetchFruitInfo();
     }
   }, [selectedFruit1, idsInitialised]);
+  // . . . . . . . . .
 
-  // Dropdown 2 Change or FruitIDs initialised
+  // UPDATE FRUIT 2 GRAPHS (DONUT & POLAR)
+  // . . . . . . . . .
+  // (When dropdown 1 changes or FruitIDs stored)
   useEffect(() => {
     if (idsInitialised) {
       async function fetchFruitInfo() {
@@ -218,7 +235,7 @@ function ComparePage() {
 
           try {
             const res = await postFruitInfo(storedFruitObject.id);
-            // console.log(res);
+            // Set Carbs, Protein, Fat & Calories - Graph 2
             setCarProFatCal2([
               res.totalNutrients.CHOCDF.quantity,
               res.totalNutrients.PROCNT.quantity,
@@ -226,6 +243,7 @@ function ComparePage() {
               res.totalNutrients.ENERC_KCAL.quantity,
             ]);
 
+            // Set Vit A, B6, C, E, K - Graph 2
             setVitAtoK2([
               Math.round(res.totalDaily.VITA_RAE.quantity),
               Math.round(res.totalDaily.VITB6A.quantity),
@@ -242,7 +260,11 @@ function ComparePage() {
     }
   }, [selectedFruit2, idsInitialised]);
 
-  // When Dropdown 1 OR 2 changes OR FruitIDs initialised
+  // UPDATE FRUIT BAR GRAPH (BASED ON FRUIT 1 & 2)
+  // . . . . . . . . .
+  // When dropdown 1 changes
+  // When dropdown 2 changes
+  // When FruitIDs are stored
   useEffect(() => {
     setIsLoading(true);
     if (idsInitialised) {
@@ -270,6 +292,7 @@ function ComparePage() {
             // Get fruit 2 (RIGHT) info
             const res2 = await postFruitInfo(storedFruitObject2.id);
 
+            // Set Sugar, Water and Fibre for both fruits (x2)
             setSuWaFi([
               res1.totalNutrients.SUGAR.quantity,
               res2.totalNutrients.SUGAR.quantity,
@@ -279,6 +302,7 @@ function ComparePage() {
               res2.totalNutrients.FIBTG.quantity,
             ]);
 
+            // Stop the loading preloader
             setIsLoading(false);
           } catch (err) {
             console.log("EdamamAPI - Unable to POST fruitID 1 &/ 2: " + err);
@@ -288,9 +312,13 @@ function ComparePage() {
       fetchFruitInfo();
     }
   }, [selectedFruit1, selectedFruit2, idsInitialised]);
+  // - - - - - - - - - - -
 
+  // COLOUR
+  // - - - - - - - - - - -
   // Gradient background
   let gradient = get2FruitGradient(selectedFruit1.name, selectedFruit2.name, "horisontal");
+  // - - - - - - - - - - -
 
   return (
     <div className="bg-slate-50">
@@ -325,7 +353,7 @@ function ComparePage() {
               <div className="w-full md:w-2/6">
                 <DonutChart dropdownSelect={selectedFruit1} fruitData={carProFatCal1} />
               </div>
-              {/* Ride Side */}
+              {/* Right Side */}
               <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
                 <DonutChart dropdownSelect={selectedFruit2} fruitData={carProFatCal2} />
               </div>
@@ -336,7 +364,7 @@ function ComparePage() {
               <div className="w-full md:w-2/6">
                 <PolarChart dropdownSelect={selectedFruit1} fruitData={vitAtoK1} />
               </div>
-              {/* Ride Side */}
+              {/* Right Side */}
               <div className="w-full md:w-2/6 md:ml-3 mt-5 md:mt-0">
                 <PolarChart dropdownSelect={selectedFruit2} fruitData={vitAtoK2} />
               </div>
@@ -352,6 +380,7 @@ function ComparePage() {
               </div>
             </div>
           </div>
+          {/* Footer */}
           <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
             <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
               <Footer />
@@ -362,5 +391,6 @@ function ComparePage() {
     </div>
   );
 }
+// ----------------------------------
 
 export default ComparePage;

@@ -1,4 +1,6 @@
-// Get a singular fruit name string and return a plural string
+// UTILITY FUNCTION:
+// ----------------------------------
+// Change a singular fruit name string and return a plural string
 // EX: "kiwi" to "kiwis"
 
 export default function fruitNameToPlural(fruitName) {
@@ -11,3 +13,4 @@ export default function fruitNameToPlural(fruitName) {
     return fruitName + "s";
   }
 }
+// ----------------------------------

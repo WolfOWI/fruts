@@ -1,6 +1,10 @@
 // Fruit Type Cards Images (Landing Page)
 
-// Fruit Imagery
+// IMPORTS
+// ----------------------------------
+// State
+import { useState } from "react";
+// Fruit Images
 import appleFull from "../../../../assets/img/fruits/apple.png";
 import appleCut from "../../../../assets/img/fruits/apple_cut.png";
 import kiwiFull from "../../../../assets/img/fruits/kiwi.png";
@@ -19,14 +23,18 @@ import berryFull from "../../../../assets/img/fruits/berry.png";
 import berryCut from "../../../../assets/img/fruits/berry_cut.png";
 import melonFull from "../../../../assets/img/fruits/melon.png";
 import melonCut from "../../../../assets/img/fruits/melon_cut.png";
+// ----------------------------------
 
-// State Management
-import { useState } from "react";
-
+// FRUIT CARD IMAGE COMPONENT
+// ----------------------------------
 function FruitTypeCardImg(props) {
+  // IMAGERY SELECTION
+  // - - - - - - - - - -
+  // Variables
   let imgFull = "";
   let imgCut = "";
 
+  // Change Images depending on fruit
   switch (props.fruit) {
     case "apple":
       imgFull = appleFull;
@@ -70,13 +78,15 @@ function FruitTypeCardImg(props) {
       imgCut = "";
       break;
   }
+  // - - - - - - - - - -
 
-  // Hover State
-  const [isHovered, setIsHovered] = useState(false);
-
+  // HOVER
+  // - - - - - - - - - -
   // Image source changes depending on hovering
+  const [isHovered, setIsHovered] = useState(false);
   // (if hovering - imgCut, else - imgFull)
   const imgSrc = `${isHovered ? imgCut : imgFull}`;
+  // - - - - - - - - - -
 
   return (
     <img
@@ -88,5 +98,6 @@ function FruitTypeCardImg(props) {
     />
   );
 }
+// ----------------------------------
 
 export default FruitTypeCardImg;

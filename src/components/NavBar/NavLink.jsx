@@ -1,8 +1,13 @@
-// Navigation Bar Links
+// Navigation Bar Links (Used in navigation bar)
 
-// Import the Link component for React Router
+// IMPORTS
+// ----------------------------------
+// React Router Link
 import { Link } from "react-router-dom";
+// ----------------------------------
 
+// NAVIGATION LINK COMPONENT
+// ----------------------------------
 function NavLink(props) {
   return (
     <Link
@@ -13,5 +18,6 @@ function NavLink(props) {
     </Link>
   );
 }
+// ----------------------------------
 
 export default NavLink;

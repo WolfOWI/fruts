@@ -1,3 +1,5 @@
+/* CSS Linked to TailWind CSS */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

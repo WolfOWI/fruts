@@ -1,15 +1,23 @@
 // Data Explained Card (Landing Page)
 
-// Import components
+// IMPORTS
+// ----------------------------------
+// Components
 import DataExplainerPoint from "./DataExplainerPoint";
+// ----------------------------------
 
+// DATA EXPLAINER CARD COMPONENT
+// ----------------------------------
 function DataExplainedCard(props) {
+  // VARIABLES OF CARD
+  // - - - - - - - - - -
   let textInBlack = "compare";
   let textInColor;
   let titleColor;
   let subTitleText;
   let explainerPoints;
 
+  // Set variables depending on prop
   switch (props.about) {
     case "calories":
       textInColor = "calories";
@@ -75,20 +83,25 @@ function DataExplainedCard(props) {
       );
       break;
   }
+  // - - - - - - - - - -
 
   return (
     <div
       className={`h-fit w-auto flex flex-col transition-all duration-300 ease-in-out bg-slate-100 rounded-3xl p-6 pt-4 mb-2 `}
     >
+      {/* Card Title */}
       <h3 className="text-center font-head font-bold text-xl p-1">
         {textInBlack} <span className={titleColor}>{textInColor}</span>
       </h3>
+      {/* Card Subtitle */}
       <h4 className="text-center font-head font-bold text-sm text-slate-500 mb-3">
         {subTitleText}
       </h4>
+      {/* Content - Explainer Points (Icon + Text) */}
       {explainerPoints}
     </div>
   );
 }
+// ----------------------------------
 
 export default DataExplainedCard;

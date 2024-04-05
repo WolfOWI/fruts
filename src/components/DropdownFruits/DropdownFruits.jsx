@@ -1,8 +1,9 @@
-// Standard Dropdown of Fruits
+// Dropdown Element of Fruits
 
-// Import components
+// IMPORTS
+// ----------------------------------
+// Components (Headless UI)
 import { Listbox, Transition } from "@headlessui/react";
-
 // Fruit Imagery
 import appleFull from "../../assets/img/fruits/apple.png";
 import appleCut from "../../assets/img/fruits/apple_cut.png";
@@ -22,11 +23,12 @@ import berryFull from "../../assets/img/fruits/berry.png";
 import berryCut from "../../assets/img/fruits/berry_cut.png";
 import melonFull from "../../assets/img/fruits/melon.png";
 import melonCut from "../../assets/img/fruits/melon_cut.png";
-
-// Import Icons
+// Icons
 import expMore_icon from "../../assets/icons/ui/expand_more_icon.svg";
+// ----------------------------------
 
-// Fruit Options (array of objects)
+// 9 x FRUIT ARRAY OPTIONS (for dropdown)
+// ----------------------------------
 const fruitsList = [
   {
     id: 1,
@@ -92,7 +94,10 @@ const fruitsList = [
     hoverColor: "hover:bg-green-100",
   },
 ];
+// ----------------------------------
 
+// DROPDOWN COMPONENT
+// ----------------------------------
 function DropdownFruits({ selectedFruit, setSelectedFruit }) {
   return (
     <Listbox value={selectedFruit} onChange={(newValue) => setSelectedFruit(newValue)}>
@@ -111,6 +116,7 @@ function DropdownFruits({ selectedFruit, setSelectedFruit }) {
             </div>
           </Listbox.Button>
 
+          {/* Transitions - Animations */}
           <Transition
             enter="transition duration-100 ease-out"
             enterFrom="transform scale-95 opacity-0"
@@ -119,7 +125,9 @@ function DropdownFruits({ selectedFruit, setSelectedFruit }) {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
+            {/* Options for dropdown */}
             <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-2xl bg-slate-50 py-1 text-base shadow-lg sm:text-sm">
+              {/* Map each object in fruit array to an option */}
               {fruitsList.map((fruit) => (
                 <Listbox.Option
                   key={fruit.id}
@@ -141,5 +149,6 @@ function DropdownFruits({ selectedFruit, setSelectedFruit }) {
     </Listbox>
   );
 }
+// ----------------------------------
 
 export default DropdownFruits;

@@ -1,6 +1,9 @@
-// Fruit Gradient Utility (FOR HOVERING)
-// Get a gradient based on: 1) single fruit type, 2) angle of gradient
+// UTILITY FUNCTION:
+// ----------------------------------
+// Get Tailwind CSS Background gradient based on: 1) single fruit type, 2) angle of gradient
+// Example: "from-[#6ccbd0] to-[#c8f688] hover:bg-gradient-to-b"
 
+// Fruit Type
 const fruitGradient = {
   apple: "from-[#6ccbd0] to-[#c8f688]",
   kiwi: "from-[#b0d16d] to-[#008a94]",
@@ -15,6 +18,7 @@ const fruitGradient = {
   melon: "from-[#5abf66] to-[#a0ca61]",
 };
 
+// Angle of Gradient
 const gradientAngle = {
   vertical: "hover:bg-gradient-to-b",
   horisontal: "hover:bg-gradient-to-r",
@@ -25,4 +29,5 @@ function get1FruitGradient(fruit, angle) {
   return gradientAngle[angle] + " " + fruitGradient[fruit];
 }
 
+// ----------------------------------
 export default get1FruitGradient;

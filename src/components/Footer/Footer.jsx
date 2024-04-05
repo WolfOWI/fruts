@@ -1,13 +1,17 @@
-// Footer (All Pages)
+// Footer
 
-// Import Sub-components
+// IMPORTS
+// ----------------------------------
+// Sub-components
 import NavLink from "../NavBar/NavLink.jsx";
 import SocialIconBtn from "./SocialIconBtn.jsx";
-
-// Import Logos & Icons
+// Logos & Icons
 import logo from "../../assets/img/logos/fruts_full_white.svg";
 import line from "../../assets/icons/ui/horisontal_line_break.svg";
+// ----------------------------------
 
+// FOOTER COMPONENT
+// ----------------------------------
 function Footer() {
   return (
     <div className="pt-10 pb-4">
@@ -41,6 +45,7 @@ function Footer() {
           </div>
         </div>
       </div>
+      {/* Copyright Information */}
       <div className="flex flex-col items-center py-7">
         <img
           className="w-full mix-blend-overlay opacity-30"
@@ -54,5 +59,6 @@ function Footer() {
     </div>
   );
 }
+// ----------------------------------
 
 export default Footer;

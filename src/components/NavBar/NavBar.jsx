@@ -1,17 +1,21 @@
 // Navigation Bar
 
-// Import Link object from React Router
+// IMPORTS
+// ----------------------------------
+// React Router Link
 import { Link } from "react-router-dom";
-
-// Import sub-components
+// Sub-components
 import NavLink from "../NavBar/NavLink.jsx";
-
-// Logo Import
+// Logo
 import logo from "../../assets/img/logos/fruts_full_black.svg";
+// ----------------------------------
 
+// NAVBAR COMPONENT
+// ----------------------------------
 function NavBar() {
   return (
     <nav className="grid grid-cols-2 py-5">
+      {/* Home Logo Link */}
       <Link to="/">
         <img
           src={logo}
@@ -19,6 +23,7 @@ function NavBar() {
           alt="frut logo"
         />
       </Link>
+      {/* Other Nav Links */}
       <div className="flex justify-end items-center">
         <NavLink text="compare" url="/compare" />
         <NavLink text="timeline" url="/timeline" />
@@ -26,5 +31,6 @@ function NavBar() {
     </nav>
   );
 }
+// ----------------------------------
 
 export default NavBar;

@@ -1,11 +1,17 @@
-// Landing Page Header
+// Landing Page Header (on landing page)
 
-// Imagery Import
+// IMPORTS
+// ----------------------------------
+// Images
 import appleFull from "../../../assets/img/fruits/apple.png";
 import melonCut from "../../../assets/img/fruits/melon_cut.png";
+// ----------------------------------
 
+// LANDING HEADER COMPONENT
+// ----------------------------------
 function LandingHeader() {
   return (
+    // Left Titles & Text
     <div className="w-full pt-5 pb-10 grid grid-cols-1 sm:grid-cols-2">
       <div>
         <h1 className="font-head text-slate-50 text-5xl font-bold pb-2">
@@ -16,6 +22,7 @@ function LandingHeader() {
           and their prices across Europe.
         </p>
       </div>
+      {/* Right Fruit Images */}
       <div className="hidden sm:flex relative justify-center col">
         <img
           src={appleFull}
@@ -31,5 +38,6 @@ function LandingHeader() {
     </div>
   );
 }
+// ----------------------------------
 
 export default LandingHeader;

@@ -1,9 +1,14 @@
-// Data Explainer Card Points (Icon & Text)
+// Data Explainer Card Points (Icon & Text) (Used in Data Explained Cards)
 
-// Import Components
-import DataExplainerIcon from "./DataExplainerIcon.jsx";
-import DataExplainerParag from "./DataExplainerParag.jsx";
+// IMPORT
+// ----------------------------------
+// Components
+import DataExplainerIcon from "./DataExplainerIcon.jsx"; // Icon
+import DataExplainerParag from "./DataExplainerParag.jsx"; // Text
+// ----------------------------------
 
+// DATA EXPLAINER POINT COMPONENT
+// ----------------------------------
 function DataExplainerPoint(props) {
   return (
     <div className="flex items-center my-6">
@@ -12,5 +17,6 @@ function DataExplainerPoint(props) {
     </div>
   );
 }
+// ----------------------------------
 
 export default DataExplainerPoint;

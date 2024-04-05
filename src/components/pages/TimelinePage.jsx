@@ -1,23 +1,22 @@
-// Timeline Page
+// Fruts Timeline Page
 
-// Import useState Hook
+// IMPORTS
+// ----------------------------------
+// Hooks
 import { useState, useEffect } from "react";
-
-// Import Util Functions
+// API
+import getDecadeFruitPrices from "../../api/euAgriDataAPI.js";
+// Util Functions
 import get1FruitBGColor from "../../utils/get1FruitBGColor.js";
 import generateRandomNum from "../../utils/generateRandomNum.js";
 import fruitNameToPlural from "../../utils/fruitNameToPlural.js";
-
-// Import API Functions
-import getDecadeFruitPrices from "../../api/euAgriDataAPI.js";
-
-// Import Components (General)
+// Components (General)
 import NavBar from "../NavBar/NavBar.jsx";
 import TimelineHeader from "./TimelineComponents/TimelineHeader.jsx";
-import LineChart from "../charts/LineChart/LineChart.jsx";
 import Footer from "../Footer/Footer.jsx";
-
-// Fruit Imagery
+// Components (Timeline Page Specific)
+import LineChart from "../charts/LineChart/LineChart.jsx";
+// Images
 import appleFull from "../../assets/img/fruits/apple.png";
 import appleCut from "../../assets/img/fruits/apple_cut.png";
 import kiwiFull from "../../assets/img/fruits/kiwi.png";
@@ -36,12 +35,13 @@ import berryFull from "../../assets/img/fruits/berry.png";
 import berryCut from "../../assets/img/fruits/berry_cut.png";
 import melonFull from "../../assets/img/fruits/melon.png";
 import melonCut from "../../assets/img/fruits/melon_cut.png";
-
-// Import Loading Animation (from UIBall - LDRS)
+// Loading Animation (from UIBall - LDRS)
 import { hourglass } from "ldrs";
 hourglass.register();
+// ----------------------------------
 
-// Fruit Options (array of objects)
+// FRUIT VISUAL OBJECTS
+// ----------------------------------
 const fruitsList = [
   {
     id: 1,
@@ -107,26 +107,37 @@ const fruitsList = [
     hoverColor: "hover:bg-green-100",
   },
 ];
+// ----------------------------------
 
+// TIMELINE PAGE COMPONENT
+// ----------------------------------
 function TimelinePage() {
+  // RANDOM FRUIT SHOWN ON PAGE LOAD
+  // - - - - - - - - - - -
   // Generate random number (for dropdown select)
   let rdmNum1 = generateRandomNum(9);
-  // State of fruitDropdown in Timelineheader
+  // - - - - - - - - - - -
+
+  // STATES
+  // - - - - - - - - - - -
+  // Fruit dropdown state
   const [selectedFruit, setSelectedFruit] = useState(fruitsList[rdmNum1]);
-
-  // State of Fruit Price Data
+  // API Graph Data state
   const [fruitPriceData, setFruitPriceData] = useState([]);
+  // API Loading State
+  const [isLoading, setIsLoading] = useState(true);
+  // - - - - - - - - - - -
 
-  // Loading State
-  const [isLoading, setIsLoading] = useState(true); //Waiting for data fromAPI
-
+  // EFFECT
+  // - - - - - - - - - - -
   // When the state of dropdown is changed
   useEffect(() => {
+    // Start the loading screen
     setIsLoading(true);
-    // console.log("useEffect" + fruitNameToPlural(selectedFruit.name));
+    // Get the prices from the API
     getDecadeFruitPrices(fruitNameToPlural(selectedFruit.name))
       .then((arr) => {
-        // console.log("Results from getDecadeFruitPrices: ", arr);
+        // Store in state for graph
         setFruitPriceData(arr);
         setIsLoading(false);
       })
@@ -134,9 +145,13 @@ function TimelinePage() {
         console.log("Failed to get fruit prices: ", err);
       });
   }, [selectedFruit]);
+  // - - - - - - - - - - -
 
+  // COLOUR
+  // - - - - - - - - - - -
   // Get Gradient of selected fruit
   let gradient = get1FruitBGColor(selectedFruit.name);
+  // - - - - - - - - - - -
 
   return (
     <div className="bg-slate-50">
@@ -164,6 +179,7 @@ function TimelinePage() {
           </div>
         </div>
       )}
+      {/* Footer */}
       <div className="bg-gradient-to-r from-blue-400 to-green-400 rounded-t-3xl">
         <div className="m-auto w-11/12 sm:w-4/5 lg:w-4/6">
           <Footer />
@@ -172,5 +188,6 @@ function TimelinePage() {
     </div>
   );
 }
+// ----------------------------------
 
 export default TimelinePage;

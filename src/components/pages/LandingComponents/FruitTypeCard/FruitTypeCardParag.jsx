@@ -1,8 +1,11 @@
-// Paragraph text in fruit type cards (landing page)
+// Fruit Type Card Text (used in Fruit Type Card)
 
+// FRUIT TYPE CARD PARAGRAPH TEXT COMPONENT
+// ----------------------------------
 function FruitTypeCardParag(props) {
   let description = "";
 
+  // Return different fun facts / information based on fruit prop passed
   switch (props.fruit) {
     case "apple":
       description =
@@ -47,5 +50,6 @@ function FruitTypeCardParag(props) {
 
   return <p className="text-center font-body text-sm">{description}</p>;
 }
+// ----------------------------------
 
 export default FruitTypeCardParag;
