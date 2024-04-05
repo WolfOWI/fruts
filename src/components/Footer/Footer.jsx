@@ -7,10 +7,6 @@ import SocialIconBtn from "./SocialIconBtn.jsx";
 // Import Logos & Icons
 import logo from "../../assets/img/logos/fruts_full_white.svg";
 import line from "../../assets/icons/ui/horisontal_line_break.svg";
-import fbSocialIcon from "../../assets/icons/social/facebook_icon.svg";
-import xSocialIcon from "../../assets/icons/social/x_icon.svg";
-import instaSocialIcon from "../../assets/icons/social/instagram_icon.svg";
-import ytSocialIcon from "../../assets/icons/social/youtube_icon.svg";
 
 function Footer() {
   return (
@@ -31,7 +27,7 @@ function Footer() {
         <div className="flex flex-col h-24 justify-end items-center">
           <img
             src={logo}
-            className="h-10 cursor-pointer hover:scale-110 ease-in-out duration-300"
+            className="h-10 hover:scale-110 ease-in-out duration-300"
             alt="frut logo"
           />
           <div className="flex justify-between h-4 w-1/2 mt-2">

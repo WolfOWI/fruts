@@ -98,7 +98,7 @@ function DropdownFruits({ selectedFruit, setSelectedFruit }) {
     <Listbox value={selectedFruit} onChange={(newValue) => setSelectedFruit(newValue)}>
       <>
         <div className="relative w-full">
-          <Listbox.Button className="relative mt-2 py-5 w-full cursor-pointer text-slate-800 font-head font-bold text-center sm:text-sm">
+          <Listbox.Button className="relative mt-2 py-5 w-full text-slate-800 font-head font-bold text-center sm:text-sm">
             <div className="flex justify-center items-center">
               <img
                 src={selectedFruit.imgSrcCut}
@@ -123,7 +123,7 @@ function DropdownFruits({ selectedFruit, setSelectedFruit }) {
               {fruitsList.map((fruit) => (
                 <Listbox.Option
                   key={fruit.id}
-                  className={`${fruit.hoverColor} relative cursor-pointer select-none py-2`}
+                  className={`${fruit.hoverColor} relative select-none py-2`}
                   value={fruit}
                 >
                   <>

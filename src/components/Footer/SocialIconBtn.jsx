@@ -42,7 +42,7 @@ function SocialIconBtn(props) {
       <img
         src={iconSrc}
         alt={`${props.social} icon`}
-        className="mix-blend-soft-light hover:scale-125 hover:invert hover:mix-blend-overlay cursor-pointer transition-all duration-300 ease-in-out"
+        className="mix-blend-soft-light hover:scale-125 hover:invert hover:mix-blend-overlay transition-all duration-300 ease-in-out"
       />
     </a>
   );

@@ -2,6 +2,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
+// Import Custom Cursor
+import AnimatedCursor from "react-animated-cursor";
+
 // Import Pages
 import LandingPage from "./components/pages/LandingPage.jsx";
 import TimelinePage from "./components/pages/TimelinePage.jsx";
@@ -11,6 +14,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <AnimatedCursor />
       <Routes>
         <Route path="/" element={<LandingPage />} exact />
         <Route path="/compare" element={<ComparePage />} exact />

@@ -15,7 +15,7 @@ function NavBar() {
       <Link to="/">
         <img
           src={logo}
-          className="h-6 mix-blend-overlay cursor-pointer hover:scale-110 hover:invert ease-in-out duration-300"
+          className="h-6 mix-blend-overlay hover:scale-110 hover:invert ease-in-out duration-300"
           alt="frut logo"
         />
       </Link>

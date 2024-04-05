@@ -78,7 +78,7 @@ function DataExplainedCard(props) {
 
   return (
     <div
-      className={`h-fit w-auto flex flex-col cursor-default transition-all duration-300 ease-in-out bg-slate-100 rounded-3xl p-6 pt-4 mb-2 `}
+      className={`h-fit w-auto flex flex-col transition-all duration-300 ease-in-out bg-slate-100 rounded-3xl p-6 pt-4 mb-2 `}
     >
       <h3 className="text-center font-head font-bold text-xl p-1">
         {textInBlack} <span className={titleColor}>{textInColor}</span>
