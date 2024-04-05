@@ -27,6 +27,13 @@ const options = {
   },
   scales: {
     x: {
+      border: {
+        color: "#cbd5e1",
+        width: 3,
+      },
+      grid: {
+        display: false,
+      },
       display: true,
       title: {
         display: true,
@@ -45,6 +52,13 @@ const options = {
       },
     },
     y: {
+      border: {
+        display: false,
+      },
+      grid: {
+        lineWidth: 3,
+        color: "#f1f5f9",
+      },
       display: true,
       title: {
         display: true,
