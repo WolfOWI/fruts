@@ -8,6 +8,11 @@ import getFruitHexColors from "../../../utils/getFruitHexColors";
 
 // Chart Options (Styling & Setup)
 const options = {
+  elements: {
+    arc: {
+      borderColor: "#f1f5f9",
+    },
+  },
   plugins: {
     tooltip: {
       callbacks: {
@@ -25,7 +30,9 @@ function DonutChart(props) {
 
   return (
     <div className="relative bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
-      <h3 className="text-xl font-head font-bold text-slate-700">Caloric Composition</h3>
+      <h3 className="text-xl font-head font-bold text-slate-700 mb-2">
+        Composition <span className="text-base font-normal"> (g)</span>
+      </h3>
 
       {/* Donut Chart */}
       <Doughnut
@@ -41,7 +48,7 @@ function DonutChart(props) {
         }}
         options={options}
       />
-      <div className="absolute flex flex-col items-center mt-[5%] sm:mt-[2%] md:mt-[35%] min-[1357px]:mt-[13%] lg:mt-[32%] xl:mt-[20%] 2xl:mt-[10%]">
+      <div className="absolute flex flex-col items-center mt-[8%] sm:mt-[4%] md:mt-[35%] min-[1357px]:mt-[15%] lg:mt-[32%] xl:mt-[24%] 2xl:mt-[12%]">
         <h4 className="flex md:hidden xl:flex text-[600%] mb-[-30px] sm:text-[800%] sm:mb-[-40px] md:text-[200%] md:mb-[0] xl:text-[300%] xl:mb-[-15px] font-head font-bold text-slate-700 ">
           {props.fruitData[3]}
         </h4>
