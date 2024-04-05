@@ -31,6 +31,10 @@ function chartOptions(chartName) {
             size: 16,
             family: "Work Sans",
           },
+          // Include a Euro sign
+          callback: function (value) {
+            return value + "g";
+          },
         },
       },
       y: {
@@ -85,7 +89,7 @@ function BarChart(props) {
     <div className="bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
       <h3 className="text-xl font-head font-bold text-slate-700 mb-2">
         Sugar
-        <span className="text-base font-normal"> (g)</span>
+        <span className="text-base font-normal"> (100g)</span>
       </h3>
 
       <Bar
@@ -103,7 +107,7 @@ function BarChart(props) {
         options={chartOptions("Sugar")}
       />
       <h3 className="text-xl font-head font-bold text-slate-700 mt-12 mb-2">
-        Water <span className="text-base font-normal"> (g)</span>
+        Water <span className="text-base font-normal"> (100g)</span>
       </h3>
       <Bar
         data={{
@@ -120,7 +124,7 @@ function BarChart(props) {
         options={chartOptions("Water")}
       />
       <h3 className="text-xl font-head font-bold text-slate-700 mt-12 mb-2">
-        Fibre <span className="text-base font-normal"> (g)</span>
+        Fibre <span className="text-base font-normal"> (100g)</span>
       </h3>
       <Bar
         data={{

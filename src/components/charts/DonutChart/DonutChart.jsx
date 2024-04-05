@@ -31,7 +31,7 @@ function DonutChart(props) {
   return (
     <div className="relative bg-slate-100 flex flex-col justify-center items-center rounded-2xl p-4">
       <h3 className="text-xl font-head font-bold text-slate-700 mb-2">
-        Composition <span className="text-base font-normal"> (g)</span>
+        Composition <span className="text-base font-normal"> (100g)</span>
       </h3>
 
       {/* Donut Chart */}

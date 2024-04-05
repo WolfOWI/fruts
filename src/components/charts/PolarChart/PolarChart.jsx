@@ -40,6 +40,7 @@ function PolarChart(props) {
             arc: {
               borderColor: "#f1f5f9",
               borderJoinStyle: "round",
+              angle: 60,
             },
           },
           scales: {
@@ -51,6 +52,10 @@ function PolarChart(props) {
               ticks: {
                 backdropColor: "#f1f5f9",
                 color: "#64748b",
+                // Include a % sign
+                callback: function (value) {
+                  return value + "%";
+                },
               },
             },
           },
