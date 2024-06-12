@@ -16,17 +16,17 @@
 <p align="center">
 
   <a href="https://github.com/WolfOWI/fruts">
-    <img src="path/to/logo" alt="Logo" width="140" height="140">
+    <img src="./src/assets/img/logos/fruts_full_yellow_accent.svg" alt="Logo" width="140" height="140">
   </a>
   
-  <h3 align="center">Project Name</h3>
+  <h3 align="center">Fruts</h3>
 
   <p align="center">
-    Short Project Slogan / Description <br>
+    For the love of fruit <br>
       <a href="https://github.com/WolfOWI/fruts"><strong>Explore the docs »</strong></a>
    <br />
    <br />
-   <a href="path/to/demonstration/video">View Demo</a>
+   <a href="https://youtu.be/RZXkFTipCdk">View Demo</a>
     ·
     <a href="https://github.com/WolfOWI/fruts/issues">Report Bug</a>
     ·
@@ -74,16 +74,18 @@
 
 ### Project Description
 
-A nice introduction to this amazing project of mine.
+Fruts is an interactive, chart-based website that provides detailed insights into the nutrition & price trends of various fruits. Apart from fun facts and info about each fruit on the home page, the platform offers two additional pages; the first, a comparative view where 2 fruits’ nutritional info are compared with engaging visualisations. Secondly, users can explore the historical pricing of fruits in Europe on the timeline page. The site is a great tool for health enthusiasts, nutritionists, and anyone with a love for fruit.
 
 ### Built With
 
-- [Technology Name](path/to/technology/website)
-- [Technology Name](path/to/technology/website)
-- [Technology Name](path/to/technology/website)
-
-<!-- GETTING STARTED -->
-<!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
+- [React](https://react.dev/)
+- [Chart.js](https://www.chartjs.org/)
+- [React Chart.js 2](https://react-chartjs-2.js.org/)
+- [Axios](https://axios-http.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Headless UI](https://headlessui.com/)
+- [LDRS](https://www.npmjs.com/package/ldrs)
+- [React Animated Cursor](https://www.npmjs.com/package/react-animated-cursor)
 
 ## Getting Started
 
@@ -91,7 +93,7 @@ The following instructions will get you a copy of the project up and running on 
 
 ### Prerequisites
 
-Ensure that you have the latest version of [Software](path/to/where/they/can/download/software) installed on your machine. The [Plugin](path/to/where/they/can/download/plugin) plugin will also be required.
+Ensure that you have the latest version of [Node.js](https://nodejs.org/) installed on your machine.
 
 ### How to install
 
@@ -99,7 +101,7 @@ Ensure that you have the latest version of [Software](path/to/where/they/can/dow
 
 Here are a couple of ways to clone this repo:
 
-1.  Software </br>
+1.  GitHub Desktop </br>
     `Android Studio` -> `File` -> `New` -> `From Version Control` -> `Git`</br>
     Enter `https://github.com/WolfOWI/fruts.git` into the URL field and press the `Clone` button.
 
@@ -314,8 +316,6 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 # Fruts Website
 
 ## Introduction
-
-The Fruts website is an place to explore everything related to fruit! Created for a university assignment learning about Chart.js and React, this interactive platform will provide detailed information on 9 different fruits, including comparing nutritional info and viewing price trends.
 
 ## Installation and Setup
 
