@@ -9,8 +9,8 @@ import axios from "axios";
 // URLs FOR API CALLS
 // ----------------------------------
 // App ID & key
-const appId = "d15c3f0b";
-const appKey = "914f5205bf207f61da61c4697f85ad9b";
+const appId = process.env.REACT_APP_EDAMAM_APP_ID;
+const appKey = process.env.REACT_APP_EDAMAM_APP_KEY;
 
 // Base Urls for GET
 const baseGetUrl = `https://api.edamam.com/api/food-database/v2/parser?app_id=${appId}&app_key=${appKey}`;
