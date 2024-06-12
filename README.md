@@ -99,32 +99,48 @@ Ensure that you have the latest version of [Node.js](https://nodejs.org/) instal
 
 ### Installation
 
-Here are a couple of ways to clone this repo:
+Here are the steps to clone this repo using GitHub Desktop and set up the project:
 
-1.  GitHub Desktop </br>
-    `Android Studio` -> `File` -> `New` -> `From Version Control` -> `Git`</br>
-    Enter `https://github.com/WolfOWI/fruts.git` into the URL field and press the `Clone` button.
+1. **Clone the Repository**:
 
-2.  Clone Repository </br>
-    Run the following in the command-line to clone the project:
+   - Open GitHub Desktop.
+   - Click on `File` -> `Clone repository...`.
+   - In the `URL` tab, enter `https://github.com/WolfOWI/fruts.git` and choose the local path where you want to save the repository.
+   - Click `Clone`.
 
-    ```sh
-    git clone https://github.com/WolfOWI/fruts.git
-    ```
+2. **Install Dependencies**:
 
-        Open `Software` and select `File | Open...` from the menu. Select cloned directory and press `Open` button
+   - Open your terminal or command prompt.
+   - Navigate to the cloned repository directory.
+   - Run the following command to install all required dependencies:
+     ```sh
+     npm install
+     ```
 
-3.  Install Dependencies </br>
-    Run the following in the command-line to install all the required dependencies:
+3. **Get Your Free Edamam API ID & Key**:
 
-    ```sh
-    npm install
-    ```
+   - Visit [Edamam](https://developer.edamam.com/) and create a free account.
+   - Click on `Accounts`, and go to the `Edamam APIs Dashboard`.
+   - Go to the `Applications` tab, and click on the `Create a new application` button.
+   - Select the `Food Database API` option, and follow the rest of the steps until you have an ID and API key.
 
-4.  Get a free API Key at [https://example.com](https://example.com) and enter it in the `config.js` file:
-    ```js
-    const API_KEY = "ENTER YOUR API";
-    ```
+4. **Set Up Environment Variables**:
+
+   - Create a `.env` file in the root of your project directory.
+   - Add your ID and API key to the `.env` file using this naming convention:
+     ```plaintext
+     REACT_APP_EDAMAM_APP_ID=your_app_id
+     REACT_APP_EDAMAM_APP_KEY=your_app_key
+     ```
+
+5. **Run the Project**:
+   - In your terminal, run the following command to start the development server:
+     ```sh
+     npm start
+     ```
+   - Open your browser and navigate to `http://localhost:3000` to view the site.
+
+By following these steps, you will have the Fruts project up and running on your local machine with your API keys securely stored in the `.env` file. This ensures that your keys are not publicly displayed or included in your repository.
 
 <!-- FEATURES AND FUNCTIONALITY-->
 <!-- You can add the links to all of your imagery at the bottom of the file as references -->
