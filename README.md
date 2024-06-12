@@ -165,8 +165,6 @@ Description of Feature
 
 Description of Feature
 
-![image5][image5]
-
 <!-- CONCEPT PROCESS -->
 <!-- Briefly explain your concept ideation process -->
 
@@ -183,10 +181,6 @@ The `Conceptual Process` is the set of actions, activities and research that was
 ### Wireframes
 
 ![image7][image7]
-
-### User-flow
-
-![image8][image8]
 
 <!-- DEVELOPMENT PROCESS -->
 
