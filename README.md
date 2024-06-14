@@ -24,7 +24,7 @@
 <p align="center">
   <a href="https://github.com/WolfOWI/fruts">
     <!-- Dark mode logo -->
-    <img src="./src/assets/img/logos/fruts_full_yellow_accent.svg" alt="Logo for Dark Mode" width="140" height="140">
+    <img src="./src/assets/img/logos/fruts_full_white.svg" alt="Logo for Dark Mode" width="140" height="140">
   </a>
 </p>
   
