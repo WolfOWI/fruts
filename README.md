@@ -35,31 +35,32 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [About the Project](#about-the-project)
   - [Project Description](#project-description)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [How to install](#how-to-install)
+  - [Installation](#installation)
 - [Features and Functionality](#features-and-functionality)
+  - [Feature 1 : Home Page](#feature-1--home-page)
+  - [Feature 2 : Compare Page](#feature-2--compare-page)
+  - [Feature 3 : Timeline Page](#feature-3--timeline-page)
 - [Concept Process](#concept-process)
   - [Ideation](#ideation)
   - [Wireframes](#wireframes)
-  - [User-flow](#user-flow)
 - [Development Process](#development-process)
   - [Implementation Process](#implementation-process)
     - [Highlights](#highlights)
     - [Challenges](#challenges)
-  - [Reviews and Testing](#peer-reviews)
-    - [Feedback from Reviews](#feedback-from-reviews)
-    - [Unit Tests](#unit-tests)
-  - [Future Implementation](#peer-reviews)
+  - [Future Implementation](#future-implementation)
 - [Final Outcome](#final-outcome)
   - [Mockups](#mockups)
   - [Video Demonstration](#video-demonstration)
-- [Conclusion](#conclusion)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
+- [Authors](#authors)
 - [License](#license)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
@@ -70,7 +71,7 @@
 
 <!-- header image of project -->
 
-![image1][image1]
+![header](./src/screenshots/headerImg.png)
 
 ### Project Description
 
@@ -143,44 +144,69 @@ Here are the steps to clone this repo using GitHub Desktop and set up the projec
 By following these steps, you will have the Fruts project up and running on your local machine with your API keys securely stored in the `.env` file. This ensures that your keys are not publicly displayed or included in your repository.
 
 <!-- FEATURES AND FUNCTIONALITY-->
-<!-- You can add the links to all of your imagery at the bottom of the file as references -->
 
 ## Features and Functionality
 
-![image2][image2]
+### Feature 1 : Home Page
 
-### Feature 1
+The Home Page serves as the welcoming interface of the Fruts website. It provides users with engaging and educational content about various fruits.
 
-Description of Feature
+![homeScreenshot](./src/screenshots/homeScreenshot.png)
 
-![image3][image3]
+### Feature 2 : Compare Page
 
-### Feature 2
+The Compare Page allows users to compare the nutritional information of two different fruits for 100g each, including their compositional make-up, their recommended daily vitamin intake percentage and their sugar, water and fibre content.
 
-Description of Feature
+![compareScreenshot](./src/screenshots/compareScreenshot.png)
 
-![image4][image4]
+### Feature 3 : Timeline Page
 
-### Feature 3
+The Timeline Page provides an overview of the historical price trends of fruits in Europe over a ten year period.
 
-Description of Feature
+![timelineScreenshot](./src/screenshots/timelineScreenshot.png)
 
 <!-- CONCEPT PROCESS -->
 <!-- Briefly explain your concept ideation process -->
 
 ## Concept Process
 
-The `Conceptual Process` is the set of actions, activities and research that was done when starting this project.
+The `conceptual process` for the fruts website involved a comprehensive set of actions, activities, and research to establish a strong brand identity and a visually appealing, user-friendly interface. Key elements included: establishing the brand identity, creating a distinctive logo that represents the essence of fruts, choosing typography that is readable, modern, and aligns with the brand identity, developing a vibrant and colourful colour palette that reflects the freshness and diversity of fruits, selecting high-quality images to complement the content and enhance the visual appeal of the website and selecting icons that are simple and intuitive.
 
 ### Ideation
 
-![image5][image5]
+![styleGuide2](./src/screenshots/style_guide_02.png)
 <br>
-![image6][image6]
+![styleGuide3](./src/screenshots/style_guide_03.png)
+<br>
+![styleGuide4](./src/screenshots/style_guide_04.png)
+<br>
+![styleGuide5](./src/screenshots/style_guide_05.png)
+<br>
+![styleGuide6](./src/screenshots/style_guide_06.png)
+<br>
+![styleGuide7](./src/screenshots/style_guide_07.png)
+<br>
+![styleGuide8](./src/screenshots/style_guide_08.png)
+<br>
+![styleGuide9](./src/screenshots/style_guide_09.png)
+<br>
+![styleGuide10](./src/screenshots/style_guide_10.png)
+<br>
+![styleGuide11](./src/screenshots/style_guide_11.png)
+<br>
+![styleGuide12](./src/screenshots/style_guide_12.png)
+<br>
+![styleGuide13](./src/screenshots/style_guide_13.png)
+<br>
 
 ### Wireframes
 
-![image7][image7]
+![styleGuide14](./src/screenshots/style_guide_14.png)
+<br>
+![styleGuide15](./src/screenshots/style_guide_15.png)
+<br>
+![styleGuide16](./src/screenshots/style_guide_16.png)
+<br>
 
 <!-- DEVELOPMENT PROCESS -->
 
@@ -190,51 +216,29 @@ The `Development Process` is the technical implementations and functionality don
 
 ### Implementation Process
 
-<!-- stipulate all of the functionality you included in the project -->
-
-- Made use of both `functionality` to implement a specific feature.
-- `MVC/MVVM` design architecture implemented.
-- `Plugin` for this.
-- ETC.
+- **Frontend Implementation**: Developed the user interface using React and Tailwind CSS to ensure a responsive and visually appealing design. Integrated Chart.js for creating interactive and informative data visualisations.
+- **Backend Implementation**: Utilised a custom backend to handle API requests and data processing. Integrated with the Edamam API for nutritional data and the EU Agriculture Data API for historical price data.
+- **Routing**: Implemented dynamic routing using React Router to facilitate smooth navigation between the Home, Compare, and Timeline pages.
+- **State Management**: Used React's state management capabilities to manage data flow and user interactions efficiently.
+- **API Integration**: Employed Axios for making HTTP requests to fetch and post data from the APIs, ensuring seamless data retrieval and submission.
 
 #### Highlights
 
-<!-- stipulated the highlight you experienced with the project -->
-
-- Sunshine.
-- Rainbows.
+- **Comprehensive Data Integration**: Successfully integrated multiple APIs to provide users with detailed and accurate nutritional and price data for various fruits.
+- **User-Friendly Interface**: Created an engaging, colourful and fun user interface that enhances the user experience and facilitates easy navigation.
+- **Interactive Visualizations**: Developed interactive charts and graphs that present complex data in an easily understandable format, increasing user engagement and understanding.
 
 #### Challenges
 
-<!-- stipulated the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
-
-- Bugs.
-- Bugs.
-
-### Reviews & Testing
-
-<!-- stipulate how you've conducted testing in the form of peer reviews, feedback and also functionality testing, like unit tests (if applicable) -->
-
-#### Feedback from Reviews
-
-`Peer Reviews` were conducted by my fellow students and lecturer. The following feedback I found useful:
-
-- Feedback one.
-- Feedback two.
-
-#### Unit Tests
-
-`Unit Tests` were conducted to establish working functionality. Here are all the tests that were ran:
-
-- Test 1 of this functionality
-- Test 2 of this functionality
+- **Data Handling**: Managing asynchronous data fetching and ensuring the performance optimisation of the website was challenging. This was addressed by implementing efficient data handling techniques and leveraging React's capabilities.
+- **Chart Customization**: Customising Chart.js to meet specific visualisation requirements posed difficulties. Frequent reference to the online documentation was needed.
+- **Responsive Design**: Ensuring the website's layout and visualisations were responsive across different devices required careful planning and considerations.
 
 ### Future Implementation
 
-<!-- stipulate functionality and improvements that can be implemented in the future. -->
-
-- Future 1.
-- Future 2.
+- **Expand Dataset**: Add more fruits to the database to provide users with a broader range of options for comparison and analysis.
+- **User Authentication**: Implement user authentication to allow personalised data tracking and save user preferences.
+- **Advanced Visualisations/Charts**: Introduce more advanced data visualisations to enhance the user experience and provide deeper insights.
 
 <!-- MOCKUPS -->
 
@@ -242,17 +246,19 @@ The `Development Process` is the technical implementations and functionality don
 
 ### Mockups
 
-![image9][image9]
+![mockup01](./src/screenshots/mockup01.png)
 <br>
-![image10][image10]
+![mockup02](./src/screenshots/mockup02.png)
+<br>
+![mockup03](./src/screenshots/mockup03.png)
 
 <!-- VIDEO DEMONSTRATION -->
 
 ### Video Demonstration
 
-To see a run through of the application, click below:
+To see a run through of the `fruts` website, click below:
 
-[View Demonstration](path/to/video/demonstration)
+[View Demonstration](https://youtu.be/RZXkFTipCdk)
 
 <!-- ROADMAP -->
 
@@ -276,7 +282,7 @@ Contributions are what makes the open-source community such an amazing place to 
 
 ## Authors
 
-- **Your Name & Surname** - [WolfOWI](https://github.com/WolfOWI)
+- **Wolf Botha** - [WolfOWI](https://github.com/WolfOWI)
 
 <!-- LICENSE -->
 
@@ -288,85 +294,19 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 
 ## Contact
 
-- **Your Name & Surname** - [email@address](mailto:email@address) - [@instagram_handle](https://www.instagram.com/instagram_handle/)
-- **Project Link** - https://github.com/WolfOWI/fruts
+- **Wolf Botha** - [21100255@virtualwindow.co.za](mailto:21100255@virtualwindow.co.za) - [@wolfbotha](https://www.instagram.com/wolfbotha)
+- **fruts - React Website** - https://github.com/WolfOWI/fruts
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
 
-<!-- all resources that you used and Acknowledgements here -->
+- [Material Design Icons](https://fonts.google.com/icons)
+- [Envato Elements](https://elements.envato.com/)
 
-- [Resource Name](path/to/resource)
-- [Resource Name](path/to/resource)
-- [Resource Name](path/to/resource)
-- [Resource Name](path/to/resource)
-- [Resource Name](path/to/resource)
-
-<!-- MARKDOWN LINKS & IMAGES -->
-
-[image1]: /path/to/image.png
-[image2]: /path/to/image.png
-[image3]: /path/to/image.png
-[image4]: /path/to/image.png
-[image5]: /path/to/image.png
-[image6]: /path/to/image.png
-[image7]: /path/to/image.png
-[image8]: /path/to/image.png
-[image9]: /path/to/image.png
-[image10]: /path/to/image.png
-
-<!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
+<!-- MARK UP: -->
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/wolfbotha/
 [instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&colorB=555
 [instagram-url]: https://www.instagram.com/wolfbotha/
-
-# Fruts Website
-
-## Introduction
-
-## Installation and Setup
-
-To get started with the Fruts website locally, follow these steps:
-
-1. Clone the repository to your local machine.
-2. Navigate to the project directory and install the dependencies using npm:
-
-```bash
-npm install
-```
-
-## Structure Overview
-
-The project is structured as follows:
-
-- `src/`: Contains the source code, including React components, utility functions, and styles.
-  - `api/`: Integration with external data sources for nutritional and agricultural information.
-  - `assets/`: Static assets, including design materials, logos, and fruit images.
-  - `components/`: Reusable React components, such as navigation bars and footers.
-  - `pages/`: The main sections of the website, including the landing, comparison and timeline page.
-  - `utils/`: Utility functions for data manipulation and UI behavior.
-- `public/`: Contains the `index.html` file and other assets directly served to the browser.
-
-## Running the Project
-
-To run the project on your local development server:
-
-```bash
-npm start
-```
-
-Navigate to `http://localhost:3000` to view the site in your browser.
-
-## API Integration
-
-This project integrates with 2 x APIs:
-
-- **Edamam API** for nutritional facts
-- **EU Agriculture Data API** for price trends.
-
-### By Wolf Botha, 21100255 (DV200 Term 1)
-
-Thanks for stopping by!
