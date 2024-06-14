@@ -14,10 +14,19 @@
 <h6 align="center">Development 200 Term 1 - 2024</h6>
 </br>
 <p align="center">
-
+<p align="center">
   <a href="https://github.com/WolfOWI/fruts">
-    <img src="./src/assets/img/logos/fruts_full_yellow_accent.svg" alt="Logo" width="140" height="140">
+    <!-- Light mode logo -->
+    <img src="./src/assets/img/logos/fruts_small_black.svg" alt="Logo for Light Mode" width="140" height="140">
   </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WolfOWI/fruts">
+    <!-- Dark mode logo -->
+    <img src="./src/assets/img/logos/fruts_full_yellow_accent.svg" alt="Logo for Dark Mode" width="140" height="140">
+  </a>
+</p>
   
   <h3 align="center">Fruts</h3>
 
