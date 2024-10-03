@@ -6,7 +6,6 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/WolfOWI/fruts?color=b0d16d)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/WolfOWI/fruts?color=bf5c5c)
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![Instagram][instagram-shield]][instagram-url]
 
 <!-- HEADER SECTION -->
 <h5 align="center" style="padding:0;margin:0;">Wolf Botha</h5>
@@ -17,18 +16,11 @@
 <p align="center">
   <a href="https://github.com/WolfOWI/fruts">
     <!-- Light mode logo -->
-    <img src="./src/assets/img/logos/fruts_small_black.svg" alt="Logo for Light Mode" width="140" height="140">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/WolfOWI/fruts">
-    <!-- Dark mode logo -->
-    <img src="./src/assets/img/logos/fruts_full_white.svg" alt="Logo for Dark Mode" width="140" height="140">
+    <img src="./src/assets/img/logos/gradient_logo.svg" alt="Logo for Light Mode" width="140" height="140">
   </a>
 </p>
   
-  <h3 align="center">Fruts</h3>
+  <h2 align="center">Fruts</h2>
 
   <p align="center">
     For the love of fruit <br>
