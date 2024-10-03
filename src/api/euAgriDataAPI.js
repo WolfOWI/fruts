@@ -8,8 +8,13 @@ import axios from "axios";
 export default function getDecadeFruitPrices(fruit) {
   // URL & PARAMETERS
   // - - - - - - - - - - -
-  // Base URL
-  const baseURL = "/api?_method=get";
+  // Check if the app is running in development or production
+  const isDevelopment = process.env.NODE_ENV === "development";
+
+  // Base URL for API calls
+  const baseURL = isDevelopment
+    ? "/api?_method=get" // Local proxy for development
+    : "https://ec.europa.eu/agrifood/api/fruitAndVegetable/prices?_method=get"; // Direct API URL for production
 
   // Parameters
   const params = new URLSearchParams({
