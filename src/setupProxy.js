@@ -9,7 +9,7 @@ module.exports = function (app) {
       pathRewrite: { "^/api": "/agrifood/api/fruitAndVegetable/prices" },
       logLevel: "debug",
       headers: {
-        "Access-Control-Allow-Origin": "*", // Add this header to prevent CORS issues
+        "Access-Control-Allow-Origin": "*",
       },
     })
   );

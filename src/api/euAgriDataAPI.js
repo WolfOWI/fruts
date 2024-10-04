@@ -15,6 +15,7 @@ export default function getDecadeFruitPrices(fruit) {
   const baseURL = isDevelopment
     ? "/api?_method=get" // Local proxy for development
     : "https://ec.europa.eu/agrifood/api/fruitAndVegetable/prices?_method=get"; // Direct API URL for production
+  // PLEASE NOTE PRODUCTION URL DOES NOT WORK DUE TO LACK OF CORS HEADERS.
 
   // Parameters
   const params = new URLSearchParams({
@@ -45,7 +46,8 @@ export default function getDecadeFruitPrices(fruit) {
 // -----------------------------------
 // Filter array to only a single variety
 function filterToSingleVariety(array) {
-  return array.filter((obj) => array[0].variety === obj.variety);
+  let filteredArr = array.filter((obj) => array[0].variety === obj.variety);
+  return filteredArr;
 }
 
 // Filter array to only 1 object per year (2013-2023)

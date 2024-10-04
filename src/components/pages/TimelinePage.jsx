@@ -4,8 +4,10 @@
 // ----------------------------------
 // Hooks
 import { useState, useEffect } from "react";
-// API
-import getDecadeFruitPrices from "../../api/euAgriDataAPI.js";
+// API (SWITCH BETWEEN ONLINE / OFFLINE)
+// import getDecadeFruitPrices from "../../api/euAgriDataAPI.js"; // ONLINE
+import getDecadeFruitPrices from "../../api/offlineEuAgriDataAPI.js"; // OFFLINE
+
 // Util Functions
 import get1FruitBGColor from "../../utils/get1FruitBGColor.js";
 import generateRandomNum from "../../utils/generateRandomNum.js";
@@ -128,7 +130,7 @@ function TimelinePage() {
   const [isLoading, setIsLoading] = useState(true);
   // - - - - - - - - - - -
 
-  // EFFECT
+  // USE EFFECT
   // - - - - - - - - - - -
   // When the state of dropdown is changed
   useEffect(() => {
@@ -146,6 +148,11 @@ function TimelinePage() {
       });
   }, [selectedFruit]);
   // - - - - - - - - - - -
+
+  // TODO DELETE
+  // useEffect(() => {
+  //   console.log(fruitNameToPlural(selectedFruit.name));
+  // }, [selectedFruit]);
 
   // COLOUR
   // - - - - - - - - - - -
