@@ -149,11 +149,6 @@ function TimelinePage() {
   }, [selectedFruit]);
   // - - - - - - - - - - -
 
-  // TODO DELETE
-  // useEffect(() => {
-  //   console.log(fruitNameToPlural(selectedFruit.name));
-  // }, [selectedFruit]);
-
   // COLOUR
   // - - - - - - - - - - -
   // Get Gradient of selected fruit

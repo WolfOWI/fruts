@@ -56,7 +56,7 @@ export function postFruitInfo(fruitApiID) {
   return axios
     .post(basePostUrl, dataToPost)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     })
     .catch((err) => {
