@@ -81,9 +81,12 @@ Fruts is an interactive, chart-based website that provides detailed insights int
 ### Built With
 
 - [React](https://react.dev/)
+- [Express JS](https://expressjs.com/)
+- [Node JS](https://nodejs.org/en)
 - [Chart.js](https://www.chartjs.org/)
 - [React Chart.js 2](https://react-chartjs-2.js.org/)
 - [Axios](https://axios-http.com/)
+- [React Router](https://reactrouter.com/en/main)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Headless UI](https://headlessui.com/)
 - [LDRS](https://www.npmjs.com/package/ldrs)
