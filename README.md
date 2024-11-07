@@ -27,7 +27,9 @@
       <a href="https://github.com/WolfOWI/fruts"><strong>Explore the docs »</strong></a>
    <br />
    <br />
-   <a href="https://youtu.be/RZXkFTipCdk">View Demo</a>
+    <a href="https://main.d2ezyl4ip4ahse.amplifyapp.com/">Visit Site</a>
+   .
+   <a href="https://youtu.be/RZXkFTipCdk">Video Demo</a>
     ·
     <a href="https://github.com/WolfOWI/fruts/issues">Report Bug</a>
     ·
@@ -60,6 +62,7 @@
 - [Final Outcome](#final-outcome)
   - [Mockups](#mockups)
   - [Video Demonstration](#video-demonstration)
+  - [Deployed Link](#deployed-link)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Authors](#authors)
@@ -75,9 +78,10 @@
 
 ![header](./src/screenshots/headerImg.png)
 
-### Project Description
+### Description
 
 Fruts is an interactive, chart-based website that provides detailed insights into the nutrition & price trends of various fruits. Apart from fun facts and info about each fruit on the home page, the platform offers two additional pages; the first, a comparative view where 2 fruits’ nutritional info are compared with engaging visualisations. Secondly, users can explore the historical pricing of fruits in Europe on the timeline page. The site is a great tool for health enthusiasts, nutritionists, and anyone with a love for fruit.
+[Visit fruts](https://main.d2ezyl4ip4ahse.amplifyapp.com/)
 
 ### Built With
 
@@ -264,6 +268,12 @@ The `Development Process` is the technical implementations and functionality don
 To see a run through of the `fruts` website, click below:
 
 [View Demonstration](https://youtu.be/RZXkFTipCdk)
+
+### Deployed Link
+
+To test the website out yourself, visit this URL:
+
+[Deployed Fruts Website](https://main.d2ezyl4ip4ahse.amplifyapp.com/)
 
 <!-- ROADMAP -->
 
