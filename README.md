@@ -34,6 +34,7 @@
     <a href="https://github.com/WolfOWI/fruts/issues">Request Feature</a>
 </p>
 <!-- TABLE OF CONTENTS -->
+
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
